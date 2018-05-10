@@ -1,0 +1,1771 @@
+<!-- saved from url=(0022)http://internet.e-mail -->
+
+<HTML><HEAD><TITLE>紫薇斗数日历2003</TITLE>
+<META 
+content="农历; 阳历; 月历; 节日; 时区; 节气; 八字; 干支; 生肖; gregorian solar; chinese lunar; calendar;" 
+name=keywords>
+<META content=All name=robots>
+<META content="gregorian solar calendar and chinese lunar calendar" 
+name=description>
+<META http-equiv=Content-Type content="text/html; charset=gb2312">
+<style type="text/css">
+
+p {fONT-FAMILY: 宋体; FONT-SIZE: 9pt;line-height:12pt:color:#000000}
+
+TD {fONT-FAMILY: 宋体,simsun; FONT-SIZE: 9pt}
+    
+a:link{ color:#000000; text-decoration:none}     
+a:visited{COLOR: #000000; TEXT-DECORATION: none} 
+a:active{color:green;text-decoration:none}
+a:hover{color:red;text-decoration:underline}  
+</style>
+
+<SCRIPT language=JavaScript>
+<!--
+/*****************************************************************************
+                                   日期资料
+*****************************************************************************/
+var ttime=0;
+var tInfo=new Array(
+0x04bd8,0x04ae0,0x0a570,0x054d5,0x0d260,0x0d950,0x16554,0x056a0,0x09ad0,0x055d2,//1900-1909
+0x04ae0,0x0a5b6,0x0a4d0,0x0d250,0x1d255,0x0b540,0x0d6a0,0x0ada2,0x095b0,0x14977,//1910-1919
+0x04970,0x0a4b0,0x0b4b5,0x06a50,0x06d40,0x1ab54,0x02b60,0x09570,0x052f2,0x04970,//1920-1929
+0x06566,0x0d4a0,0x0ea50,0x06e95,0x05ad0,0x02b60,0x186e3,0x092e0,0x1c8d7,0x0c950,//1930-1939
+0x0d4a0,0x1d8a6,0x0b550,0x056a0,0x1a5b4,0x025d0,0x092d0,0x0d2b2,0x0a950,0x0b557,//1940-1949
+0x06ca0,0x0b550,0x15355,0x04da0,0x0a5b0,0x14573,0x052b0,0x0a9a8,0x0e950,0x06aa0,//1950-1959
+0x0aea6,0x0ab50,0x04b60,0x0aae4,0x0a570,0x05260,0x0f263,0x0d950,0x05b57,0x056a0,//1960-1969
+0x096d0,0x04dd5,0x04ad0,0x0a4d0,0x0d4d4,0x0d250,0x0d558,0x0b540,0x0b6a0,0x195a6,//1970-1979
+0x095b0,0x049b0,0x0a974,0x0a4b0,0x0b27a,0x06a50,0x06d40,0x0af46,0x0ab60,0x09570,//1980-1989
+0x04af5,0x04970,0x064b0,0x074a3,0x0ea50,0x06b58,0x055c0,0x0ab60,0x096d5,0x092e0,//1990-1999
+0x0c960,0x0d954,0x0d4a0,0x0da50,0x07552,0x056a0,0x0abb7,0x025d0,0x092d0,0x0cab5,//2000-2009
+0x0a950,0x0b4a0,0x0baa4,0x0ad50,0x055d9,0x04ba0,0x0a5b0,0x15176,0x052b0,0x0a930,//2010-2019
+0x07954,0x06aa0,0x0ad50,0x05b52,0x04b60,0x0a6e6,0x0a4e0,0x0d260,0x0ea65,0x0d530,//2020-2029
+0x05aa0,0x076a3,0x096d0,0x04afb,0x04ad0,0x0a4d0,0x1d0b6,0x0d250,0x0d520,0x0dd45,//2030-2039
+0x0b5a0,0x056d0,0x055b2,0x049b0,0x0a577,0x0a4b0,0x0aa50,0x1b255,0x06d20,0x0ada0,//2040-2049
+/**Add By JJonline@JJonline.Cn**/
+0x14b63,0x09370,0x049f8,0x04970,0x064b0,0x168a6,0x0ea50, 0x06b20,0x1a6c4,0x0aae0,//2050-2059
+0x0a2e0,0x0d2e3,0x0c960,0x0d557,0x0d4a0,0x0da50,0x05d55,0x056a0,0x0a6d0,0x055d4,//2060-2069
+0x052d0,0x0a9b8,0x0a950,0x0b4a0,0x0b6a6,0x0ad50,0x055a0,0x0aba4,0x0a5b0,0x052b0,//2070-2079
+0x0b273,0x06930,0x07337,0x06aa0,0x0ad50,0x14b55,0x04b60,0x0a570,0x054e4,0x0d160,//2080-2089
+0x0e968,0x0d520,0x0daa0,0x16aa6,0x056d0,0x04ae0,0x0a9d4,0x0a2d0,0x0d150,0x0f252,//2090-2099
+0x0d520);//2100
+
+var solarMonth=new Array(31,28,31,30,31,30,31,31,30,31,30,31);
+var Gan=new Array("甲","乙","丙","丁","戊","己","庚","辛","壬","癸");
+var Zhi=new Array("子","丑","寅","卯","辰","巳","午","未","申","酉","戌","亥");
+var Animals=new Array("鼠","牛","虎","兔","龙","蛇","马","羊","猴","鸡","狗","猪");
+var solarTerm = new Array("小寒","大寒","立春","雨水","惊蛰","春分","清明","谷雨","立夏","小满","芒种","夏至","小暑","大暑","立秋","处暑","白露","秋分","寒露","霜降","立冬","小雪","大雪","冬至");
+var sTermInfo = new Array(0,21208,42467,63836,85337,107014,128867,150921,173149,195551,218072,240693,263343,285989,308563,331033,353350,375494,397447,419210,440795,462224,483532,504758);
+var nStr1 = new Array('日','一','二','三','四','五','六','七','八','九','十');
+var nStr2 = new Array('初','十','廿','卅','□');
+var monthName = new Array("一月","二月","三月","四月","五月","六月","七月","八月","九月","十月","十一月","十二月");
+
+
+var sihuaTable=new Array(
+"干","禄","权","科","忌",
+"甲","廉贞","破军","武曲","太阳",
+"乙","天机","天梁","紫微","太阴",
+"丙","天同","天机","文昌","廉贞",
+"丁","太阴","天同","天机","巨门",
+"戊","贪狼","太阴","右弼","天机",
+"已","武曲","贪狼","天梁","文曲",
+"庚","太阳","武曲","天府","天相",
+"辛","巨门","太阳","文曲","文昌",
+"壬","天梁","紫微","左辅","武曲",
+"癸","破军","巨门","太阴","贪狼");
+
+var myZiWeiTable=new Array(
+"支","主星",
+"子","太阳禄存八座台辅月德大耗",
+"丑","天府擎羊截空天虚破碎天贵",
+"寅","天机太阴三台天喜解神天巫阴煞",
+"卯","紫薇贪狼天魁火星天刑凤阁蜚廉",
+"辰","巨门文昌右弼铃星天德寡宿",
+"巳","天相天钺地劫地空天马天福",
+"午","天梁天官",
+"未","廉贞七杀天伤天姚恩光",
+"申","封诰红鸾天空孤辰",
+"酉","天使旬空天才天寿",
+"戌","天同文曲左辅",
+"亥","武曲破军陀罗龙池天月天哭天厨");
+
+var gGongName=new Array(
+"命宫",
+"父母",
+"福德",
+"田宅",
+"官禄",
+"仆役",
+"迁移",
+"疾厄",
+"财帛",
+"子女",
+"夫妻",
+"兄弟"
+);
+
+var gGongName1=new Array(
+"命宫",
+"兄弟",
+"夫妻",
+"子女",
+"财帛",
+"疾厄",
+"迁移",
+"仆役",
+"官禄",
+"田宅",
+"福德",
+"父母"
+);
+var gMonthName = new Array("正","二","三","四","五","六","七","八","九","十","冬","腊");
+var gShowDaySiHua=false;
+//大运起始年,天干:戊 序号5
+var myDaYun1=new Array(
+1994,5
+);
+
+//大运起始年,天干:庚 序号7
+var myDaYun96=new Array(
+1998,7
+);
+
+//大运起始年,天干:甲 序号1
+var myDaYun=new Array(
+2004,1
+);
+
+var gColor= new Array(
+"<font color=green>",
+"<font color=Navy >",
+"<font color=Blue>",
+"<font color=red>"
+);
+var gXiantianMingIndex=3;//固定值
+var gDayunMingIndex=0;
+var gYearMingIndex=0;
+var gMonthMingIndex=0;
+var gDayMingIndex=0;
+
+//国历节日 *表示放假日
+var sFtv = new Array(
+"0101 元旦节",
+"0214 情人节",
+"0308 妇女节",
+"0312 植树节",
+"0401 愚人节",
+"0422 世界地球日",
+"0501 劳动节",
+"0504 青年节",
+"0801 建军节",
+"0910 中国教师节",
+"1224 平安夜",
+"1225 圣诞节")
+
+//农历节日 *表示放假日
+var lFtv = new Array(
+"0101*春节",
+"0102*初二",
+"0115 元宵节",
+"0505*端午节",
+"0707 七夕情人节",
+"0715 中元节",
+"0815*中秋节",
+"0909 重阳节",
+"1208 腊八节",
+"1223 小年",
+"0100*除夕")
+
+//某月的第几个星期几
+var wFtv = new Array(
+"1144 感恩节")
+
+/*****************************************************************************
+日期计算
+*****************************************************************************/
+
+//====================================== 返回农历 y年的总天数
+function lYearDays(y) {
+var i, sum = 348;
+for(i=0x8000; i>0x8; i>>=1) sum += (tInfo[y-1900] & i)? 1: 0;
+return(sum+leapDays(y));
+}
+
+//====================================== 返回农历 y年闰月的天数
+function leapDays(y) {
+if(leapMonth(y))  return((tInfo[y-1900] & 0x10000)? 30: 29);
+else return(0);
+}
+
+//====================================== 返回农历 y年闰哪个月 1-12 , 没闰返回 0
+function leapMonth(y) {
+return(tInfo[y-1900] & 0xf);
+}
+
+//====================================== 返回农历 y年m月的总天数
+function monthDays(y,m) {
+return( (tInfo[y-1900] & (0x10000>>m))? 30: 29 );
+}
+
+
+//====================================== 算出农历, 传入日期控件, 返回农历日期控件
+//                                       该控件属性有 .year .month .day .isLeap
+function Lunar(objDate) {
+
+var i, leap=0, temp=0;
+var offset   = (Date.UTC(objDate.getFullYear(),objDate.getMonth(),objDate.getDate()) - Date.UTC(1900,0,31))/86400000;
+
+for(i=1900; i<2100 && offset>0; i++) { temp=lYearDays(i); offset-=temp; }
+
+if(offset<0) { offset+=temp; i--; }
+
+this.year = i;
+
+leap = leapMonth(i); //闰哪个月
+this.isLeap = false;
+
+for(i=1; i<13 && offset>0; i++) {
+//闰月
+if(leap>0 && i==(leap+1) && this.isLeap==false)
+{ --i; this.isLeap = true; temp = leapDays(this.year); }
+else
+{ temp = monthDays(this.year, i); }
+
+//解除闰月
+if(this.isLeap==true && i==(leap+1)) this.isLeap = false;
+
+offset -= temp;
+}
+
+if(offset==0 && leap>0 && i==leap+1)
+if(this.isLeap)
+{ this.isLeap = false; }
+else
+{ this.isLeap = true; --i; }
+
+if(offset<0){ offset += temp; --i; }
+
+this.month = i;
+this.day = offset + 1;
+}
+
+//==============================返回公历 y年某m+1月的天数
+function solarDays(y,m) {
+if(m==1)
+return(((y%4 == 0) && (y%100 != 0) || (y%400 == 0))? 29: 28);
+else
+return(solarMonth[m]);
+}
+//============================== 传入 offset 返回干支, 0=甲子
+function cyclical(num) {
+return(Gan[num%10]+Zhi[num%12]);
+}
+
+
+//返回年四化
+function yearSiHua(num){
+}
+
+//返回月四化
+function monthSiHua(num){
+}
+//============================== 阴历属性
+function calElement(sYear,sMonth,sDay,week,lYear,lMonth,lDay,isLeap,cYear,cMonth,cDay) {
+
+this.isToday    = false;
+//瓣句
+this.sYear      = sYear;   //公元年4位数字
+this.sMonth     = sMonth;  //公元月数字
+this.sDay       = sDay;    //公元日数字
+this.week       = week;    //星期, 1个中文
+//农历
+this.lYear      = lYear;   //公元年4位数字
+this.lMonth     = lMonth;  //农历月数字
+this.lDay       = lDay;    //农历日数字
+this.isLeap     = isLeap;  //是否为农历闰月?
+//八字
+this.cYear      = cYear;   //年柱, 2个中文
+this.cMonth     = cMonth;  //月柱, 2个中文
+this.cDay       = cDay;    //日柱, 2个中文
+
+this.color      = '';
+
+this.lunarFestival = ''; //农历节日
+this.solarFestival = ''; //公历节日
+this.solarTerms    = ''; //节气
+}
+
+//===== 某年的第n个节气为几日(从0小寒起算)
+function sTerm(y,n) {
+if(y==2009 && n==2){sTermInfo[n]=43467}
+var offDate = new Date( ( 31556925974.7*(y-1900) + sTermInfo[n]*60000  ) + Date.UTC(1900,0,6,2,5) );
+return(offDate.getUTCDate());
+}
+
+
+
+
+//============================== 返回阴历控件 (y年,m+1月)
+/*
+功能说明: 返回整个月的日期资料控件
+
+使用方式: OBJ = new calendar(年,零起算月);
+
+OBJ.length      返回当月最大日
+OBJ.firstWeek   返回当月一日星期
+
+由 OBJ[日期].属性名称 即可取得各项值
+
+OBJ[日期].isToday  返回是否为今日 true 或 false
+
+其他 OBJ[日期] 属性参见 calElement() 中的注解
+*/
+function calendar(y,m) {
+
+var sDObj, lDObj, lY, lM, lD=1, lL, lX=0, tmp1, tmp2, tmp3;
+var cY, cM, cD; //年柱,月柱,日柱
+var lDPOS = new Array(3);
+var n = 0;
+var firstLM = 0;
+
+sDObj = new Date(y,m,1,0,0,0,0);    //当月一日日期
+
+this.length    = solarDays(y,m);    //公历当月天数
+this.firstWeek = sDObj.getDay();    //公历当月1日星期几
+
+////////年柱 1900年立春后为庚子年(60进制36)
+if(m<2) cY=cyclical(y-1900+36-1);
+else cY=cyclical(y-1900+36);
+var term2=sTerm(y,2); //立春日期
+
+////////月柱 1900年1月小寒以前为 丙子月(60进制12)
+var firstNode = sTerm(y,m*2) //返回当月「节」为几日开始
+cM = cyclical((y-1900)*12+m+12);
+
+//当月一日与 1900/1/1 相差天数
+//1900/1/1与 1970/1/1 相差25567日, 1900/1/1 日柱为甲戌日(60进制10)
+var dayCyclical = Date.UTC(y,m,1,0,0,0,0)/86400000+25567+10;
+
+for(var i=0;i<this.length;i++) {
+
+if(lD>lX) {
+sDObj = new Date(y,m,i+1);    //当月一日日期
+lDObj = new Lunar(sDObj);     //农历
+lY    = lDObj.year;           //农历年
+lM    = lDObj.month;          //农历月
+lD    = lDObj.day;            //农历日
+lL    = lDObj.isLeap;         //农历是否闰月
+lX    = lL? leapDays(lY): monthDays(lY,lM); //农历当月最后一天
+
+if(n==0) firstLM = lM;
+lDPOS[n++] = i-lD+1;
+}
+
+//依节气调整二月分的年柱, 以立春为界
+if(m==1 && (i+1)==term2) cY=cyclical(y-1900+36);
+//依节气月柱, 以「节」为界
+if((i+1)==firstNode) cM = cyclical((y-1900)*12+m+13);
+//日柱
+cD = cyclical(dayCyclical+i);
+
+
+//sYear,sMonth,sDay,week,
+//lYear,lMonth,lDay,isLeap,
+//cYear,cMonth,cDay
+this[i] = new calElement(y, m+1, i+1, nStr1[(i+this.firstWeek)%7],
+lY, lM, lD++, lL,
+cY ,cM, cD );
+
+//todo:四化
+var n_y = lY;
+var n_m = lM;
+var n_d = lD;
+
+var zY, zM, zD; //年位置,月位置,日位置
+
+zY=(n_y-1900+36)%12+1;
+zM=(zY+n_m+24-2)%12+1;
+zD=(zM+n_d+24-3)%12+1;
+
+var cziwei= myZiWeiTable[zD*2+1];//获取命宫主星
+var zDqian = (zM+n_d+24-3+6)%12+1;//获取迁移宫位置
+var cziweiqian= myZiWeiTable[zDqian*2+1];//获取迁移宫主星
+
+var indexi=(dayCyclical+i)%10+1;//日天干
+
+var cb=0;
+var cbq=0;
+
+//日命宫四化
+for(var ii=1;ii<5;ii++) {
+var cSiHua=sihuaTable[indexi*5+ii];
+if(cziwei.search(cSiHua)>=0) {
+
+if (cb==0){this[i].solarFestival +="命";cb=1;}
+this[i].solarFestival += cSiHua+sihuaTable[ii]+" ";
+}
+//this[i].solarFestival += cSiHua;
+}
+
+//日迁移四化
+for(var ii=1;ii<5;ii++) {
+var cSiHua=sihuaTable[indexi*5+ii];
+if(cziweiqian.search(cSiHua)>=0) {
+
+if (cbq==0){this[i].solarFestival +="迁";cbq=1;}
+this[i].solarFestival += cSiHua+sihuaTable[ii]+" ";
+}
+}
+
+
+//this[i].solarFestival += cziweiqian;
+}//end for
+
+
+
+
+//节气
+tmp1=sTerm(y,m*2  )-1;
+tmp2=sTerm(y,m*2+1)-1;
+this[tmp1].solarTerms = solarTerm[m*2];
+this[tmp2].solarTerms = solarTerm[m*2+1];
+//guohao
+if( y==2009 && m==1)
+{
+	if(tD==3)
+	{
+		this[tmp1].solarTerms = ''
+		//this[tmp2].solarTerms = ''
+	}
+	else if(tD==4)
+	{
+		this[tmp1].solarTerms = '立春'
+		//this[tmp2].solarTerms = ''
+	}
+}
+if(m==3) this[tmp1].color = 'red'; //清明颜色
+
+//公历节日
+for(i in sFtv)
+if(sFtv[i].match(/^(\d{2})(\d{2})([\s\*])(.+)$/))
+if(Number(RegExp.$1)==(m+1)) {
+this[Number(RegExp.$2)-1].solarFestival += RegExp.$4 + ' ';
+if(RegExp.$3=='*') this[Number(RegExp.$2)-1].color = 'red';
+}
+
+//月周节日
+for(i in wFtv)
+if(wFtv[i].match(/^(\d{2})(\d)(\d)([\s\*])(.+)$/))
+if(Number(RegExp.$1)==(m+1)) {
+tmp1=Number(RegExp.$2);
+tmp2=Number(RegExp.$3);
+if(tmp1<5)
+this[((this.firstWeek>tmp2)?7:0) + 7*(tmp1-1) + tmp2 - this.firstWeek].solarFestival += RegExp.$5 + ' ';
+else {
+tmp1 -= 5;
+tmp3 = (this.firstWeek+this.length-1)%7; //当月最后一天星期?
+this[this.length - tmp3 - 7*tmp1 + tmp2 - (tmp2>tmp3?7:0) - 1 ].solarFestival += RegExp.$5 + ' ';
+}
+}
+
+//农历节日
+for(i in lFtv)
+if(lFtv[i].match(/^(\d{2})(.{2})([\s\*])(.+)$/)) {
+tmp1=Number(RegExp.$1)-firstLM;
+if(tmp1==-11) tmp1=1;
+if(tmp1 >=0 && tmp1<n) {
+tmp2 = lDPOS[tmp1] + Number(RegExp.$2) -1;
+if( tmp2 >= 0 && tmp2<this.length && this[tmp2].isLeap!=true) {
+this[tmp2].lunarFestival += RegExp.$4 + ' ';
+if(RegExp.$3=='*') this[tmp2].color = 'red';
+}
+}
+}
+
+
+//复活节只出现在3或4月
+if(m==2 || m==3) {
+var estDay = new easter(y);
+if(m == estDay.m)
+this[estDay.d-1].solarFestival = this[estDay.d-1].solarFestival+' 复活节 Easter Sunday';
+}
+
+
+//if(m==2) this[20].solarFestival = this[20].solarFestival+unescape('%20%u6D35%u8CE2%u751F%u65E5');
+
+//黑色星期五
+if((this.firstWeek+12)%7==5)
+this[12].solarFestival += '黑色星期五';
+
+//TODO:显示四化
+
+//今日
+if(y==tY && m==tM) this[tD-1].isToday = true;
+}
+
+//======================================= 返回该年的复活节(春分后第一次满月周后的第一主日)
+function easter(y) {
+
+var term2=sTerm(y,5); //取得春分日期
+var dayTerm2 = new Date(Date.UTC(y,2,term2,0,0,0,0)); //取得春分的公历日期控件(春分一定出现在3月)
+var lDayTerm2 = new Lunar(dayTerm2); //取得取得春分农历
+
+if(lDayTerm2.day<15) //取得下个月圆的相差天数
+var lMlen= 15-lDayTerm2.day;
+else
+var lMlen= (lDayTerm2.isLeap? leapDays(y): monthDays(y,lDayTerm2.month)) - lDayTerm2.day + 15;
+
+//一天等于 1000*60*60*24 = 86400000 毫秒
+var l15 = new Date(dayTerm2.getTime() + 86400000*lMlen ); //求出第一次月圆为公历几日
+var dayEaster = new Date(l15.getTime() + 86400000*( 7-l15.getUTCDay() ) ); //求出下个周日
+
+this.m = dayEaster.getUTCMonth();
+this.d = dayEaster.getUTCDate();
+
+}
+
+//====================== 中文日期
+function cDay(d){
+var s;
+
+switch (d) {
+case 10:
+s = '初十'; break;
+case 20:
+s = '二十'; break;
+break;
+case 30:
+s = '三十'; break;
+break;
+default :
+s = nStr2[Math.floor(d/10)];
+s += nStr1[d%10];
+}
+return(s);
+}
+
+///////////////////////////////////////////////////////////////////////////////
+
+var cld;
+
+function drawCld(SY,SM) {
+var i,sD,s,size;
+cld = new calendar(SY,SM);
+
+if(SY>1874 && SY<1909) yDisplay = '光绪' + (((SY-1874)==1)?'元':SY-1874);
+if(SY>1908 && SY<1912) yDisplay = '宣统' + (((SY-1908)==1)?'元':SY-1908);
+
+if(SY>1911) yDisplay = '建国' + (((SY-1949)==1)?'元':SY-1949);
+
+GZ.innerHTML = yDisplay +'年 农历 ' + cyclical(SY-1900+36) + '年 【'+Animals[(SY-4)%12]+'年】';
+
+YMBG.innerHTML = "&nbsp;" + SY + "年" + "<BR>&nbsp;" + monthName[SM];
+
+for(i=0;i<42;i++) {
+
+sObj=eval('SD'+ i);
+lObj=eval('LD'+ i);
+
+sObj.className = '';
+
+sD = i - cld.firstWeek;
+
+//if(SY!=tY || SM!=tM && clickD==-1) clickD=0;
+
+if(sD>-1 && sD<cld.length) { //日期内
+sObj.innerHTML = sD+1;
+
+if(clickD-1==sD || cld[sD].isToday) sObj.className = 'todyaColor'; //今日颜色
+
+sObj.style.color = cld[sD].color; //法定假日颜色
+
+if(cld[sD].lDay==1) //显示农历月
+lObj.innerHTML = '<b>'+(cld[sD].isLeap?'闰':'') + cld[sD].lMonth + '月' + (monthDays(cld[sD].lYear,cld[sD].lMonth)==29?'小':'大')+'</b>';
+else //显示农历日
+lObj.innerHTML = cDay(cld[sD].lDay);
+
+s=cld[sD].lunarFestival;
+if(s.length>0) { //农历节日
+if(s.length>6) s = s.substr(0, 4)+'...';
+s = s.fontcolor('red');
+}
+else { //公历节日
+s=cld[sD].solarFestival;
+if(s.length>0) {
+size = (s.charCodeAt(0)>0 && s.charCodeAt(0)<128)?8:4;
+if(s.length>size+2) s = s.substr(0, size)+'...';
+s=(s=='黑色星期五')?s.fontcolor('black'):s.fontcolor('blue');
+}
+else { //廿四节气
+s=cld[sD].solarTerms;
+if(s.length>0) s = s.fontcolor('limegreen');
+}
+}
+
+if(cld[sD].solarTerms=='清明') s = '清明节'.fontcolor('red');
+if(cld[sD].solarTerms=='芒种') s = '芒种节'.fontcolor('red');
+if(cld[sD].solarTerms=='夏至') s = '夏至节'.fontcolor('red');
+if(cld[sD].solarTerms=='冬至') s = '冬至节'.fontcolor('red');
+
+
+
+if(s.length>0) lObj.innerHTML = s;
+
+}
+else { //非日期
+sObj.innerHTML = '';
+lObj.innerHTML = '';
+}
+}
+}
+
+
+function changeCld() {
+var y,m;
+y=CLD.SY.selectedIndex+1900;
+m=CLD.SM.selectedIndex;
+drawCld(y,m);
+
+
+var nw=canvas.width;
+canvas.width=0;
+canvas.width=nw;
+//canvas.remove();
+//var canvas =document.getElementById("drawing");
+//var context = canvas.getContext("2d");
+//context.save();//保存
+//context.setTransform(1, 0, 0, 1, 0, 0);
+//context.clearRect(0,0,gLineLength+2,gLineLength+2);
+//context.restore();
+
+fnDrawNine(context,1,1,gLineLength);//画十二格
+fnDrawZhuXing(context);
+fnDrawSanCeng(context);
+
+
+getYMDsihua(context,y,m+1,clickD);
+
+fnDrawGongPos(context,gDayMingIndex);//标出日命宫
+//fnDrawGongName(context,5,1);//大限
+//fnDrawGongName(context,11,2);//年
+//fnDrawGongName(context,11+2,3);//月0正月,1二月,2三月
+
+
+//fnDrawNongLiYue(context,11);//画农历月
+
+//fnDrawSanFangLine(context,1);//画三方线
+
+}
+
+function pushBtm(K) {
+switch (K){
+case 'YU' :
+if(CLD.SY.selectedIndex>0) CLD.SY.selectedIndex--;
+break;
+case 'YD' :
+if(CLD.SY.selectedIndex<150) CLD.SY.selectedIndex++;
+break;
+case 'MU' :
+if(CLD.SM.selectedIndex>0) {
+CLD.SM.selectedIndex--;
+}
+else {
+CLD.SM.selectedIndex=11;
+if(CLD.SY.selectedIndex>0) CLD.SY.selectedIndex--;
+}
+break;
+case 'MD' :
+if(CLD.SM.selectedIndex<11) {
+CLD.SM.selectedIndex++;
+}
+else {
+CLD.SM.selectedIndex=0;
+if(CLD.SY.selectedIndex<150) CLD.SY.selectedIndex++;
+}
+break;
+default :
+clickD=tD;
+CLD.SY.selectedIndex=tY-1900;
+CLD.SM.selectedIndex=tM;
+}
+
+changeCld();
+return false;
+}
+
+var Today = new Date();
+var tY = Today.getFullYear();
+var tM = Today.getMonth();
+var tD = Today.getDate();
+var clickD=tD;
+//document.write(tD);
+//////////////////////////////////////////////////////////////////////////////
+
+var width = "160";
+var offsetx = 2;
+var offsety = 8;
+
+var x = 0;
+var y = 0;
+var snow = 0;
+var sw = 0;
+var cnt = 0;
+
+var dStyle;
+document.onmousemove = mEvn;
+
+//显示详细日期资料.移动矩形
+function mOvr(v) {
+var s,festival;
+var sObj=eval('SD'+ v);
+var d=sObj.innerHTML-1;
+
+//sYear,sMonth,sDay,week,
+//lYear,lMonth,lDay,isLeap,
+//cYear,cMonth,cDay
+
+if(sObj.innerHTML!='') {
+
+sObj.style.cursor = 's-resize';
+
+if(cld[d].solarTerms == '' && cld[d].solarFestival == '' && cld[d].lunarFestival == '')
+festival = '';
+else
+festival = '<TABLE WIDTH=100% BORDER=0 CELLPADDING=2 CELLSPACING=0 BGCOLOR="#CCFFCC"><TR><TD>'+
+'<FONT COLOR="#000000" STYLE="font-size:9pt;">'+cld[d].solarTerms + ' ' + cld[d].solarFestival + ' ' + cld[d].lunarFestival+'</FONT></TD>'+
+'</TR></TABLE>';
+
+s= '<TABLE WIDTH="160" BORDER=0 CELLPADDING="2" CELLSPACING=0 BGCOLOR="#000066" style="filter:Alpha(opacity=80)"><TR><TD>' +
+'<TABLE WIDTH=100% BORDER=0 CELLPADDING=0 CELLSPACING=0><TR><TD ALIGN="right"><FONT COLOR="#ffffff" STYLE="font-size:9pt;">'+
+cld[d].sYear+' 年 '+cld[d].sMonth+' 月 '+cld[d].sDay+' 日<br>星期'+cld[d].week+'<br>'+
+'<font color="violet">农历'+(cld[d].isLeap?'闰 ':' ')+cld[d].lMonth+' 月 '+cld[d].lDay+' 日</font><br>'+
+'<font color="yellow">'+cld[d].cYear+'年 '+cld[d].cMonth+'月 '+cld[d].cDay + '日</font>'+
+'</FONT></TD></TR></TABLE>'+ festival +'</TD></TR></TABLE>';
+
+document.all["detail"].innerHTML = s;
+
+if (snow == 0) {
+dStyle.left = x+offsetx-(width/2);
+dStyle.top = y+offsety;
+dStyle.visibility = "visible";
+snow = 1;
+}
+}
+}
+
+//单击日历
+function onclickDay(v){
+var sObj=eval('SD'+ v);
+var d=sObj.innerHTML-1;
+clickD =d+1;
+//document.write(clickD);
+changeCld();
+
+}
+
+//清除详细日期资料
+function mOut() {
+if ( cnt >= 1 ) { sw = 0; }
+if ( sw == 0 ) { snow = 0; dStyle.visibility = "hidden";}
+else cnt++;
+}
+
+//取得位置
+function mEvn() {
+x=event.x;
+y=event.y;
+if (document.body.scrollLeft)
+{x=event.x+document.body.scrollLeft; y=event.y+document.body.scrollTop;}
+if (snow){
+dStyle.left = x+offsetx-(width/2);
+dStyle.top = y+offsety;
+}
+}
+
+
+///////////////////////////////////////////////////////////////////////////
+
+function changeTZ() {
+   CITY.innerHTML = CLD.TZ.value.substr(6)
+   setCookie("TZ",CLD.TZ.selectedIndex)
+}
+
+
+function tick() {
+   var today
+   today = new Date()
+   Clock.innerHTML = today.toLocaleString()
+   //Clock2.innerHTML = TimeAdd(today.toGMTString(), CLD.TZ.value)
+   window.setTimeout("tick()", 1000);
+}
+
+function setCookie(name, value) {
+	var today = new Date()
+	var expires = new Date()
+	expires.setTime(today.getTime() + 1000*60*60*24*365)
+	document.cookie = name + "=" + escape(value)	+ "; expires=" + expires.toGMTString()
+}
+
+function getCookie(Name) {
+   var search = Name + "="
+   if(document.cookie.length > 0) {
+      offset = document.cookie.indexOf(search)
+      if(offset != -1) {
+         offset += search.length
+         end = document.cookie.indexOf(";", offset)
+         if(end == -1) end = document.cookie.length
+         return unescape(document.cookie.substring(offset, end))
+      }
+      else return ""
+   }
+}
+
+/////////////////////////////////////////////////////////
+
+function initial() {
+  
+   dStyle = detail.style;
+   CLD.SY.selectedIndex=tY-1900;
+   CLD.SM.selectedIndex=tM;
+   drawCld(tY,tM);
+   //pushBtm('');
+   //CLD.TZ.selectedIndex=getCookie("TZ");
+   //changeTZ();
+   //tick();
+}
+//-->
+</SCRIPT>
+
+
+<STYLE>.todyaColor {
+	BACKGROUND-COLOR: aqua
+}
+</STYLE>
+
+<META content="MSHTML 6.00.2800.1505" name=GENERATOR></HEAD>
+<BODY leftMargin=0 topMargin=15 onload=initial()>
+
+<SCRIPT language=JavaScript>
+<!--
+
+//-->
+</SCRIPT>
+
+<SCRIPT language=JavaScript>
+
+lck=0;
+function r(hval)
+{
+if ( lck == 0 )
+{
+document.bgColor=hval;
+}
+}
+</SCRIPT>
+
+
+<DIV id=detail style="POSITION: absolute"></DIV>
+<CENTER>
+<FORM name=CLD>
+<TABLE>
+  <TBODY>
+  <TR>
+    <TD vAlign=top align=middle>
+	<SCRIPT language=JavaScript><!--
+
+	//<tr>是表中的行，<td>是表中的单元格
+	//--></SCRIPT>
+	<canvas id="drawing" width="552" height="552"></canvas> 
+<SCRIPT language=JavaScript>
+
+var gLineLength=550;
+
+//==画十二格
+function fnDrawNine(context,beginX,beginY,lineLength) {
+var tline=lineLength/4;
+
+context.save();
+
+var x1=beginX
+var y1=beginY
+var x2=x1+lineLength
+var y2=y1
+
+context.beginPath();
+//第一横线
+context.moveTo(x1, y1);
+context.lineTo(x2, y2);
+
+//第二横线
+x1=beginX
+y1=beginY+tline
+x2=x1+lineLength
+y2=y1
+
+context.moveTo(x1, y1);
+context.lineTo(x2, y2);
+
+//第三横线
+x1=beginX
+y1=beginY+tline*3
+x2=x1+lineLength
+y2=y1
+
+context.moveTo(x1, y1);
+context.lineTo(x2, y2);
+
+
+//第四横线
+x1=beginX
+y1=beginY+lineLength
+x2=x1+lineLength
+y2=y1
+
+context.moveTo(x1, y1);
+context.lineTo(x2, y2);
+
+//第一竖线
+x1=beginX
+y1=beginY
+x2=x1
+y2=y1+lineLength
+
+context.moveTo(x1, y1);
+context.lineTo(x2, y2);
+
+//第二竖线
+x1=beginX+tline
+y1=beginY
+x2=x1
+y2=y1+lineLength
+
+context.moveTo(x1, y1);
+context.lineTo(x2, y2);
+
+//第三竖线
+x1=beginX+tline*3
+y1=beginY
+x2=x1
+y2=y1+lineLength
+
+context.moveTo(x1, y1);
+context.lineTo(x2, y2);
+
+//第四竖线
+x1=beginX+lineLength
+y1=beginY
+x2=x1
+y2=y1+lineLength
+
+context.moveTo(x1, y1);
+context.lineTo(x2, y2);
+
+//上短线
+x1=beginX+tline*2
+y1=beginY
+x2=x1
+y2=y1+tline
+
+context.moveTo(x1, y1);
+context.lineTo(x2, y2);
+
+//下短线
+x1=beginX+tline*2
+y1=beginY+tline*3
+x2=x1
+y2=y1+tline
+
+context.moveTo(x1, y1);
+context.lineTo(x2, y2);
+
+//左短线
+x1=beginX
+y1=beginY+tline*2
+x2=x1+tline
+y2=y1
+
+context.moveTo(x1, y1);
+context.lineTo(x2, y2);
+
+//右短线
+x1=beginX+tline*3
+y1=beginY+tline*2
+x2=x1+tline
+y2=y1
+
+context.moveTo(x1, y1);
+context.lineTo(x2, y2);
+
+context.closePath();
+
+//context.setLineDash([5,5]);//第一个虚线点是25个像素，第二个空白点是5个像素
+context.lineWidth = 1; // 设置线宽
+context.strokeStyle = "green"; // 设置线的颜色
+context.stroke(); // 进行线的着色，这时整条线才变得可见
+context.restore();
+return(0);
+}
+
+
+//宫位置编号转坐标,三方线专用
+function fnGongMid2xy(){
+
+var gongXY=new Array();
+
+var tXY = new Array(0,0);
+//宫位子
+tXY[0]=gLineLength/4*2.5;//x
+tXY[1]=gLineLength/4*3;//y
+gongXY.push(tXY);
+
+var tXY = new Array(0,0);
+//宫位丑
+tXY[0]=gLineLength/4*1.5;//x
+tXY[1]=gLineLength/4*3;//y
+gongXY.push(tXY);
+
+var tXY = new Array(0,0);
+//宫位寅
+tXY[0]=gLineLength/4;//x
+tXY[1]=gLineLength/4*3;//y
+gongXY.push(tXY);
+
+var tXY = new Array(0,0);
+//宫位卯
+tXY[0]=gLineLength/4;//x
+tXY[1]=gLineLength/4*2.5;//y
+gongXY.push(tXY);
+
+var tXY = new Array(0,0);
+//宫位辰
+tXY[0]=gLineLength/4;//x
+tXY[1]=gLineLength/4*1.5;//y
+gongXY.push(tXY);
+
+var tXY = new Array(0,0);
+//宫位巳
+tXY[0]=gLineLength/4;//x
+tXY[1]=gLineLength/4;//y
+gongXY.push(tXY);
+
+var tXY = new Array(0,0);
+//宫位午
+tXY[0]=gLineLength/4*1.5;//x
+tXY[1]=gLineLength/4;//y
+gongXY.push(tXY);
+
+var tXY = new Array(0,0);
+//宫位未
+tXY[0]=gLineLength/4*2.5;//x
+tXY[1]=gLineLength/4;//y
+gongXY.push(tXY);
+
+var tXY = new Array(0,0);
+//宫位申
+tXY[0]=gLineLength/4*3;//x
+tXY[1]=gLineLength/4;//y
+gongXY.push(tXY);
+
+var tXY = new Array(0,0);
+//宫位酉
+tXY[0]=gLineLength/4*3;//x
+tXY[1]=gLineLength/4*1.5;//y
+gongXY.push(tXY);
+
+var tXY = new Array(0,0);
+//宫位戌
+tXY[0]=gLineLength/4*3;//x
+tXY[1]=gLineLength/4*2.5;//y
+gongXY.push(tXY);
+
+var tXY = new Array(0,0);
+//宫位亥
+tXY[0]=gLineLength/4*3;//x
+tXY[1]=gLineLength/4*3;//y
+gongXY.push(tXY);
+
+
+return gongXY;
+}
+
+//宫位置编号转坐标
+function fnGong2xy(){
+
+var gongXY=new Array();
+
+var tXY = new Array(0,0);
+//宫位子
+tXY[0]=gLineLength/4*2+5;//x
+tXY[1]=gLineLength/4*3+15;//y
+gongXY.push(tXY);
+
+var tXY = new Array(0,0);
+//宫位丑
+tXY[0]=gLineLength/4+5;//x
+tXY[1]=gLineLength/4*3+15;//y
+gongXY.push(tXY);
+
+var tXY = new Array(0,0);
+//宫位寅
+tXY[0]=5;//x
+tXY[1]=gLineLength/4*3+15;//y
+gongXY.push(tXY);
+
+var tXY = new Array(0,0);
+//宫位卯
+tXY[0]=5;//x
+tXY[1]=gLineLength/4*2+15;//y
+gongXY.push(tXY);
+
+var tXY = new Array(0,0);
+//宫位辰
+tXY[0]=5;//x
+tXY[1]=gLineLength/4+15;//y
+gongXY.push(tXY);
+
+var tXY = new Array(0,0);
+//宫位巳
+tXY[0]=5;//x
+tXY[1]=15;//y
+gongXY.push(tXY);
+
+var tXY = new Array(0,0);
+//宫位午
+tXY[0]=gLineLength/4+5;//x
+tXY[1]=15;//y
+gongXY.push(tXY);
+
+var tXY = new Array(0,0);
+//宫位未
+tXY[0]=gLineLength/4*2+5;//x
+tXY[1]=15;//y
+gongXY.push(tXY);
+
+var tXY = new Array(0,0);
+//宫位申
+tXY[0]=gLineLength/4*3+5;//x
+tXY[1]=15;//y
+gongXY.push(tXY);
+
+var tXY = new Array(0,0);
+//宫位酉
+tXY[0]=gLineLength/4*3+5;//x
+tXY[1]=gLineLength/4+15;//y
+gongXY.push(tXY);
+
+var tXY = new Array(0,0);
+//宫位戌
+tXY[0]=gLineLength/4*3+5;//x
+tXY[1]=gLineLength/4*2+15;//y
+gongXY.push(tXY);
+
+var tXY = new Array(0,0);
+//宫位亥
+tXY[0]=gLineLength/4*3+5;//x
+tXY[1]=gLineLength/4*3+15;//y
+gongXY.push(tXY);
+
+
+return gongXY;
+}
+
+//画宫名 nMing命宫位置,nHigh层数 1大运,2年,3月  高亮月
+function fnDrawGongName(context,nMing,nHigh){
+context.save();
+context.font = "13px 宋体";// 设置字体
+context.lineWidth = 1;
+var noffset=0;
+var cDateName;
+switch (nHigh){
+case 1:
+cDateName="运";
+context.fillStyle = "#005600";// 设置填充颜色
+context.strokeStyle = "#005600";
+break;
+case 2:
+cDateName="年";
+noffset+=15;
+context.fillStyle = "#4169E1";//浅蓝
+context.strokeStyle = "#4169E1";
+break;
+default:
+cDateName="月";
+noffset+=30;
+context.lineWidth = 2;
+context.fillStyle = "#CD950C";//橘黄
+context.strokeStyle = "#CD950C";
+}
+
+for (var i=1;i<13;i++){
+
+var x =aGong[i-1][0];
+var y =aGong[i-1][1];
+var nii=(nMing+24-i)%12;
+var nstr=cDateName + gGongName1[nii];
+x+=gLineLength/4-45;
+y+=gLineLength/4-18;
+context.fillText(nstr, x, y-noffset);
+
+if (nii==0) {
+if (nHigh==3) context.strokeRect(aGong[i-1][0]-5, aGong[i-1][1]-15,gLineLength/4, gLineLength/4);//高亮当月宫
+else context.strokeRect(x, y-noffset-11, 39, 13);//画边框
+}
+}
+context.restore();
+}
+
+//画三方线,i宫位1-12
+function fnDrawSanFangLine(context,i){
+if (i>0) i--;
+
+var iGuan=(i+4)%12;
+var iQian=(i+6)%12;
+var iCai=(i+8)%12;
+
+var x =aGongMid[i][0];
+var y =aGongMid[i][1];
+
+var xGuan=aGongMid[iGuan][0];
+var yGuan=aGongMid[iGuan][1];
+
+var xQian=aGongMid[iQian][0];
+var yQian=aGongMid[iQian][1];
+
+var xCai=aGongMid[iCai][0];
+var yCai=aGongMid[iCai][1];
+
+context.save();
+
+context.beginPath();
+context.moveTo(x, y);
+context.lineTo(xQian, yQian);
+context.moveTo(x, y);
+context.lineTo(xGuan, yGuan);
+context.moveTo(x, y);
+context.lineTo(xCai, yCai);
+context.lineTo(xGuan, yGuan);
+context.closePath();
+//context.lineWidth = 1; // 设置线宽
+context.setLineDash([3,3]);//第一个虚线点是25个像素，第二个空白点是5个像素
+context.strokeStyle = "purple"; // 设置线的颜色
+context.stroke();
+
+context.restore();
+
+}
+
+//在十二格内画农历月,nStart起始宫位
+function fnDrawNongLiYue(context,nStart){
+
+context.save();
+context.font = "20px 黑体";// 设置字体
+context.fillStyle = "#EDEDED";// 设置填充颜色
+
+for (var i=1;i<13;i++){
+var x =aGong[i-1][0];
+var y =aGong[i-1][1];
+var nstr= gMonthName[(24+i-nStart)%12];
+x+=gLineLength/4-27;
+y+=5;
+
+//context.fillText(nstr, x, y);
+context.lineWidth = 0.2;
+//context.strokeStyle = "#CC0000";
+context.strokeText(nstr, x, y);
+
+}
+context.restore();
+}
+
+//画主星
+function fnDrawZhuXing(context){
+
+context.font = "13px 宋体";// 设置字体
+context.fillStyle = "#4169E1";// 设置填充颜色
+
+for (var i=1;i<13;i++){
+var x =aGong[i-1][0];
+var y =aGong[i-1][1];
+var nstr= myZiWeiTable[i*2+1];
+var n = nstr.length;
+//第一行
+for (var ii=0;ii<n;ii+=2){context.fillText(nstr[ii], x+(ii*8), y);}// 设置字体内容，以及在画布上的位置x,y
+
+//第二行
+for (var ii=1;ii<n;ii+=2){context.fillText(nstr[ii], x+(ii-1)*8, y+20);}
+
+}
+}
+
+//根据宫位置获取宫名 i宫位置1-12,typei宫类型1先天,2大限,3年,4月,5日
+function fnGetGongNameByI(i,typei){
+var noffset=0;
+switch (typei){
+case 1:noffset=gXiantianMingIndex;break;
+case 2:noffset=gDayunMingIndex;break;
+case 3:noffset=gYearMingIndex;break;
+case 4:noffset=gMonthMingIndex;break;
+case 5:noffset=gDayMingIndex;break;
+}
+
+var nstr= gGongName[(i-noffset+24)%12];
+return nstr;
+}
+
+//返回大运年月四化
+function getYMDsihua(context,y,m,d){
+var cY, cM, cD; //年柱天干,月柱天干,日柱天干
+var cY1;
+
+if(m<3) cY=(y-1900+36-1)%10+1;
+else cY=(y-1900+36)%10+1;
+
+if(m<3) cY1=(y-1900+36-1)%12+1;
+else cY1=(y-1900+36)%12+1;
+
+var term2=sTerm(y,2); //立春日期
+
+////////月柱 1900年1月小寒以前为 丙子月(60进制12)
+var firstNode = sTerm(y,(m-1)*2) //返回当月「节」为几日开始
+cM = ((y-1900)*12+m+12-1)%10+1;
+
+
+//依节气调整二月分的年柱, 以立春为界
+if(m==2 && d>=term2) cY=(y-1900+36)%10+1;
+if(m==2 && d>=term2) cY1=(y-1900+36)%12+1;
+//依节气月柱, 以「节」为界
+if(d>=firstNode) cM = ((y-1900)*12+m+13-1)%10+1;
+
+var daYunsihua="运:";
+var daYunsihua1="运:";
+var ysihua="年:";
+var ysihua1="年:";
+var msihua="月:";
+var msihua1="月:";
+var dsihua="日:";
+var dsihua1="日:";
+var gongwei,gewei;//年宫位,格位
+
+gDayunMingIndex=Math.floor( (y-myDaYun[0])/10 )+gXiantianMingIndex;//先天命宫在3,每10年+1
+gYearMingIndex=cY1;
+var lObj = new Lunar(new Date(y,m-1,d));     //农历
+var lY1    = lObj.year;           //农历年
+var lM1    = lObj.month;          //农历月
+var lD1    = lObj.day;            //农历日
+
+gMonthMingIndex = (cY1+lM1-2)%12+1;
+var n_y = lY1;
+var n_m = lM1;
+var n_d = lD1;
+
+var zY, zM, zD; //年位置,月位置,日位置
+
+zY=(n_y-1900+36)%12+1;
+zM=(zY+n_m+24-2)%12+1;
+zD=(zM+n_d+24-2)%12+1;
+
+gDayMingIndex=zD;
+
+
+
+var cDaYun =Math.floor( (y-myDaYun[0])/10 )+myDaYun[1];
+cDaYun = (cDaYun-1)%10+1;//大运天干i
+//大运四化
+for(var ii=1;ii<5;ii++) {
+var cSiHua=sihuaTable[cDaYun*5+ii];
+//TODO:找出四化星的宫位,格位
+for(var i1=1;i1<13;i1++){
+var cZiWeiZhuXin=myZiWeiTable[i1*2+1];
+var gn=cZiWeiZhuXin.search(cSiHua);
+if (gn>=0){
+gongwei=i1;
+gewei=gn/2+1;
+break;
+}
+}
+if(ii==1) daYunsihua +=cSiHua+sihuaTable[ii]+"->"+fnGetGongNameByI(gongwei,1)+"--)"+fnGetGongNameByI( (gongwei+6-1)%12+1,1);
+
+if(ii==4) daYunsihua1 +=cSiHua+sihuaTable[ii]+"->"+fnGetGongNameByI(gongwei,1)+"-->"+fnGetGongNameByI( (gongwei+6-1)%12+1,1);
+//fnGetGongNameByI(2,4);//i宫位置1-12,typei宫类型1先天,2大限,3年,4月,5日
+fnDrawSiHua(context,gongwei,1,gewei,sihuaTable[ii]);
+}//endfor
+
+
+var midx=gLineLength/4+5;
+var midy=gLineLength/4+15;
+var midoffset=70;
+context.fillStyle = "green";
+context.fillText(daYunsihua,midx,midy);
+context.fillText(daYunsihua1,midx,midy+midoffset);
+
+
+fnDrawGongName(context,gDayunMingIndex,1);
+
+//年四化
+for(var ii=1;ii<5;ii++) {
+var cSiHua=sihuaTable[cY*5+ii];
+//TODO:找出四化星的宫位,格位
+for(var i1=1;i1<13;i1++){
+var cZiWeiZhuXin=myZiWeiTable[i1*2+1];
+var gn=cZiWeiZhuXin.search(cSiHua);
+if (gn>=0){
+gongwei=i1;
+gewei=gn/2+1;
+break;
+}
+}
+if(ii==1) ysihua +=cSiHua+sihuaTable[ii]+"->"+fnGetGongNameByI(gongwei,2)+"--)"+fnGetGongNameByI( (gongwei+6-1)%12+1,2);
+
+if(ii==4) ysihua1 +=cSiHua+sihuaTable[ii]+"->"+fnGetGongNameByI(gongwei,2)+"-->"+fnGetGongNameByI( (gongwei+6-1)%12+1,2);
+fnDrawSiHua(context,gongwei,2,gewei,sihuaTable[ii]);
+}//endfor
+
+midy+=15;
+context.fillStyle = "#4169E1";
+context.fillText(ysihua,midx,midy);
+context.fillText(ysihua1,midx,midy+midoffset);
+
+fnDrawGongName(context,cY1,2);
+
+//月四化
+for(var ii=1;ii<5;ii++) {
+var cSiHua=sihuaTable[cM*5+ii];
+
+for(var i1=1;i1<13;i1++){
+var cZiWeiZhuXin=myZiWeiTable[i1*2+1];
+var gn=cZiWeiZhuXin.search(cSiHua);
+if (gn>=0){
+gongwei=i1;
+gewei=gn/2+1;
+break;
+}
+}
+if(ii==1) msihua +=cSiHua+sihuaTable[ii]+"->"+fnGetGongNameByI(gongwei,3)+"--)"+fnGetGongNameByI( (gongwei+6-1)%12+1,3);
+
+if(ii==4) msihua1 +=cSiHua+sihuaTable[ii]+"->"+fnGetGongNameByI(gongwei,3)+"-->"+fnGetGongNameByI( (gongwei+6-1)%12+1,3);
+fnDrawSiHua(context,gongwei,3,gewei,sihuaTable[ii]);
+}//endfor
+
+midy+=15;
+context.fillStyle = "#CD950C";
+context.fillText(msihua,midx,midy);
+context.fillText(msihua1,midx,midy+midoffset);
+
+fnDrawGongName(context,gMonthMingIndex ,3);
+
+fnDrawNongLiYue(context,cY1);//画农历月
+
+//日四化
+
+
+
+//context.strokeRect(aGong[zD-1][0]-5, aGong[zD-1][1]-15,gLineLength/4, gLineLength/4);//高亮当日宫
+
+var dayCyclical = Date.UTC(y,m-1,1,0,0,0,0)/86400000+25567+10;
+var cD11=(dayCyclical+d-1)%10+1;//日天干
+//日四化
+for(var ii=1;ii<5;ii++) {
+var cSiHua=sihuaTable[cD11*5+ii];
+
+for(var i1=1;i1<13;i1++){
+var cZiWeiZhuXin=myZiWeiTable[i1*2+1];
+
+var gn=cZiWeiZhuXin.search(cSiHua);
+if (gn>=0){
+gongwei=i1;
+gewei=gn/2+1;
+break;
+}
+}
+if(ii==1) dsihua +=cSiHua+sihuaTable[ii]+"->"+fnGetGongNameByI(gongwei,4)+"--)"+fnGetGongNameByI( (gongwei+6-1)%12+1,4);
+
+if(ii==4) dsihua1 +=cSiHua+sihuaTable[ii]+"->"+fnGetGongNameByI(gongwei,4)+"-->"+fnGetGongNameByI( (gongwei+6-1)%12+1,4);
+if (gShowDaySiHua) fnDrawSiHua(context,gongwei,4,gewei,sihuaTable[ii]);
+}//endfor
+
+midy+=15;
+context.fillStyle = "red";
+context.fillText(dsihua,midx,midy);
+context.fillText(dsihua1,midx,midy+midoffset);
+
+return ysihua+"<BR>"+msihua+"<BR>";
+}
+
+
+//gongN宫位:1-12 lineN行:大运1,年2,月3,日4 geN格位置 ziC"禄权科忌"
+function fnDrawSiHua(context,gongN,lineN,geN,ziC){
+context.font = "13px 新宋体";// 设置字体
+
+var x =aGong[gongN-1][0];
+var y =aGong[gongN-1][1];
+
+var nnn=16;
+x+=(geN-1)*16;
+
+switch (lineN){
+case 1:
+y+= nnn*1;
+context.fillStyle = "#005600";//绿色
+break;
+
+case 2:
+y+= nnn*2;
+context.fillStyle = "#4169E1";//浅蓝
+context.strokeStyle = "#A020F0"; // 设置边框颜色
+break;
+
+case 3:
+y+= nnn*3;
+context.fillStyle = "#CD950C";//橘黄
+context.strokeStyle = "#CC0000"; // 设置边框颜色
+break;
+
+case 4://日四化
+y+= nnn*4;
+context.save();
+context.lineWidth = 0.8;
+context.fillStyle = "#CD950C";//橘黄
+context.strokeStyle = "#CC0000"; // 设置边框颜色
+
+//context.fillRect(x, y+7, 13, 13);//填充字背景色
+context.strokeRect(x, y+7, 13, 13);//画边框
+context.restore();
+context.fillStyle = "red";// 设置填充颜色
+context.fillText(ziC, x, y+18);// 设置字体内容，以及在画布上的位置,x,y
+return 0;
+break;
+
+default :
+y+= nnn*1;
+context.fillStyle = "#005600";//绿色
+}
+
+context.fillRect(x, y+7, 13, 13);//填充字背景色
+context.strokeRect(x, y+7, 13, 13);//画边框
+
+context.fillStyle = "white";// 设置填充颜色
+context.fillText(ziC, x, y+18);// 设置字体内容，以及在画布上的位置,x,y
+
+}
+
+//标出命宫方位
+function fnDrawGongPos(context,mingi){
+var x=aGongMid[mingi-1][0];
+var y=aGongMid[mingi-1][1];
+context.beginPath();
+context.arc(x,y,4,0,360,false);//xy圆坐标,15半径,0-360°,false逆时针
+context.strokeStyle = "#CC0000"; // 设置线的颜色
+context.stroke();
+context.closePath();
+}
+
+var gKuangLiuRi;
+
+function fnDrawSanCeng(context){
+
+context.font = "13px 新宋体";// 设置字体
+
+var x=gLineLength/4+6;
+var y=gLineLength/4*2.7;
+
+
+context.fillStyle = "green";
+context.fillText("三层四化:", x, y+15);
+
+var xn=58;
+context.fillStyle = "#005600";//绿色
+context.fillRect(x+xn, y, 13*2+8, 13+6);//填充字背景色
+context.strokeRect(x+xn, y, 13*2+8, 13+6);//画边框
+
+context.fillStyle = "white";// 设置填充颜色
+context.fillText("大限", x+xn+4, y+15);// 设置字体内容，以及在画布上的位置,x,y
+
+xn+=38;
+context.fillStyle = "#4169E1";//浅蓝
+context.strokeStyle = "#A020F0"; 
+context.fillRect(x+xn, y, 13*2+8, 13+6);
+context.strokeRect(x+xn, y, 13*2+8, 13+6);
+
+context.fillStyle = "white";
+context.fillText("流年", x+xn+4, y+15);
+
+xn+=38;
+context.fillStyle = "#CD950C";//橘黄
+context.strokeStyle = "#CC0000"; 
+context.fillRect(x+xn, y, 13*2+8, 13+6);
+context.strokeRect(x+xn, y, 13*2+8, 13+6);
+
+context.fillStyle = "white";
+context.fillText("流月", x+xn+4, y+15);
+
+xn+=38;
+context.fillStyle = "#CD950C";//橘黄
+context.strokeStyle = "#CC0000"; 
+//context.fillRect(x+xn, y, 13*2+8, 13+6);
+if (gShowDaySiHua) context.strokeRect(x+xn, y, 13*2+8, 13+6);
+
+context.fillStyle = "red";
+context.fillText("流日", x+xn+4, y+15);
+
+gKuangLiuRi={x: x+xn, y: y ,w:13*2+8 ,h:13+6};
+}
+
+//鼠标点击坐标
+function getEventPosition(ev){
+  var x, y;
+  if (ev.layerX || ev.layerX == 0) {
+    x = ev.layerX;
+    y = ev.layerY;
+  } else if (ev.offsetX || ev.offsetX == 0) { // Opera
+    x = ev.offsetX;
+    y = ev.offsetY;
+  }
+  return {x: x, y: y};
+}
+
+var canvas =document.getElementById("drawing");
+var context = canvas.getContext("2d");
+
+
+
+canvas.addEventListener('click', function(e){
+  p = getEventPosition(e);
+  var x0=p.x,y0=p.y;
+  
+  var x=gKuangLiuRi.x,y=gKuangLiuRi.y,w=gKuangLiuRi.w,h=gKuangLiuRi.h;
+  //假设点p(x0,y0),矩形左上坐标x,y,矩形宽w,矩形高h.那么只要判断
+  if(x0 >= x && x0 <= (x+w) && y0>=y && y0<= (y+h)) {
+  gShowDaySiHua=gShowDaySiHua?false:true;changeCld();return;}
+  
+  //点入中宫
+  x=gLineLength/4;y=gLineLength/4;w=gLineLength/2;h=gLineLength/2;
+  if(x0 >= x && x0 <= (x+w) && y0>=y && y0<= (y+h)) return;
+  
+  for(var i=0;i<12;i++){//点入12宫
+  x=aGong[i][0]-5;y=aGong[i][1]-15;w=gLineLength/4;h=gLineLength/4;
+  if(x0 >= x && x0 <= (x+w) && y0>=y && y0<= (y+h)) {
+  changeCld();fnDrawSanFangLine(context,i+1);break;}
+  }
+  //document.write(p.x,p.y);
+}, false);
+
+//context.save();//保存
+var aGong=fnGong2xy();
+
+var aGongMid=fnGongMid2xy();
+
+fnDrawNine(context,1,1,gLineLength);//画十二格
+
+fnDrawZhuXing(context);
+
+
+//context.save();//保存
+
+//context.setTransform(1, 0, 0, 1, 0, 0);
+//context.clearRect(0,0,canvas_width,canvas_height);
+
+//context.restore();//还原canvas设置
+
+getYMDsihua(context,tY,tM+1,tD);
+
+fnDrawSanFangLine(context,gMonthMingIndex);//画三方线
+
+fnDrawSanCeng(context);
+
+//document.write(gXiantianMingIndex,gDayunMingIndex,gYearMingIndex,gMonthMingIndex,gDayMingIndex);
+fnDrawGongPos(context,gDayMingIndex);//标出当日命宫
+
+fnGetGongNameByI(2,4);//i宫位置1-12,typei宫类型1先天,2大限,3年,4月,5日
+
+//valign 调格子中内容的垂向（上下）位置，valign=“top“上面,  valign=“middle“中间，或 valign=“bottom 下面。
+//align 调格子中内容的（左右）横向位置，align="LEFT“ 左边对齐, align="CENTER“中间 或 align="RIGHT“右边对齐。
+</SCRIPT>
+	
+      </TD>
+	
+	
+    <TD vAlign=top align=middle>
+	
+	<TABLE border=0>
+	<BODY>
+	    <TD vAlign=top align=middle ><BUTTON 
+      style="FONT-SIZE: 9pt" onClick="return pushBtm('YU')">年↑</BUTTON><BUTTON 
+      style="FONT-SIZE: 9pt" onClick="return pushBtm('YD')">年↓</BUTTON> 
+     <BUTTON style="FONT-SIZE: 9pt" 
+      onclick="return pushBtm('MU')">月↑</BUTTON><BUTTON style="FONT-SIZE: 9pt" 
+      onclick="return pushBtm('MD')">月↓</BUTTON> 
+      <BUTTON style="FONT-SIZE: 9pt" onClick="return pushBtm('')">今日</BUTTON> 
+  </TD></TBODY></TABLE>
+  
+      <DIV style="Z-INDEX: -1; POSITION: absolute; TOP: 70px"><FONT id=YMBG 
+      style="FONT-SIZE: 80pt; COLOR: #f0f0f0; FONT-FAMILY: '黑体'">&nbsp;0000<BR>&nbsp;JUN</FONT> 
+      </DIV>
+      <TABLE border=0>
+        <TBODY>
+        <TR>
+          
+		  <TD bgColor=#483D8B colSpan=7><FONT style="FONT-SIZE: 9pt" 
+            color=#CDBE70 size=2>公历<SELECT style="FONT-SIZE: 9pt" 
+            onchange=changeCld() name=SY> 
+              <SCRIPT language=JavaScript><!--
+            for(i=1900;i<2100;i++) document.write('<option>'+i)
+            //--></SCRIPT>
+            </SELECT>年<SELECT style="FONT-SIZE: 9pt" onchange=changeCld() 
+            name=SM> 
+              <SCRIPT language=JavaScript><!--
+            for(i=1;i<13;i++) document.write('<option>'+i)
+            //--></SCRIPT>
+            </SELECT>月 </FONT><FONT id=GZ face=标楷体 color=#CDBE70 
+            size=3></FONT><BR></TD></TR>
+        
+		<TR align=middle bgColor=#e0e0e0>
+          <TD width=54><FONT color=red>日</FONT></TD>
+          <TD width=54>一</TD>
+          <TD width=54>二</TD>
+          <TD width=54>三</TD>
+          <TD width=54>四</TD>
+          <TD width=54>五</TD>
+          <TD width=54><FONT color=green>六</FONT></TD></TR>
+        
+		<SCRIPT language=JavaScript><!--
+            var gNum
+            for(i=0;i<6;i++) {
+               document.write('<tr align=center>')
+               for(j=0;j<7;j++) {
+                  gNum = i*7+j
+                  document.write('<td id="GD' + gNum +'" onMouseOver="mOvr(' + gNum +')" onMouseOut="mOut()" onclick="onclickDay(' + gNum +')"><font id="SD' + gNum +'" size=5 face="Arial Black"')
+                  if(j == 0) document.write(' color=red')
+                  if(j == 6)
+                     if(i%2==1) document.write(' color=red')
+                        else document.write(' color=green')
+                  document.write(' TITLE=""> </font><br><font id="LD' + gNum + '" size=2 style="font-size:9pt"> </font></td>')
+               }
+               document.write('</tr>')
+            }
+            //--></SCRIPT>
+        
+		</TBODY></TABLE>
+		
+		<BR>
+		
+		</TD>
+
+
+  
+  </TR></TBODY></TABLE></FORM>
+
+<HR width="90%" color=#cccccc noShade SIZE=1>
+
+<FONT style="FONT-SIZE: 9pt" face=ARIAL size=2>
+<FONT color=red>甲</FONT>廉破武阳、<FONT color=red>乙</FONT>机梁紫阴、
+
+<FONT color=red>丙</FONT>同机昌廉、<FONT color=red>丁</FONT>阴同机巨、
+
+<FONT color=red>戊</FONT>贪阴右机、<FONT color=red>己</FONT>武贪梁曲、
+
+<FONT color=red>庚</FONT>阳武府相、<FONT color=red>辛</FONT>巨阳曲昌、
+
+<FONT color=red>壬</FONT>梁紫左武、<FONT color=red>癸</FONT>破巨阴贪<BR></CENTER>
+
+
+</BODY></HTML>
