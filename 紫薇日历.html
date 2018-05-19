@@ -627,15 +627,13 @@ m=CLD.SM.selectedIndex;
 drawCld(y,m);
 
 
-var nw=canvas.width;
-canvas.width=0;
-canvas.width=nw;
-//canvas.remove();
-//var canvas =document.getElementById("drawing");
-//var context = canvas.getContext("2d");
+//var nw=canvas.width;
+//canvas.width=0;
+//canvas.width=nw;
+
 //context.save();//保存
 //context.setTransform(1, 0, 0, 1, 0, 0);
-//context.clearRect(0,0,gLineLength+2,gLineLength+2);
+context.clearRect(0,0,gLineLength+2,gLineLength+2);
 //context.restore();
 
 fnDrawNine(context,1,1,gLineLength);//画十二格
@@ -646,14 +644,6 @@ fnDrawSanCeng(context);
 getYMDsihua(context,y,m+1,clickD);
 
 fnDrawGongPos(context,gDayMingIndex);//标出日命宫
-//fnDrawGongName(context,5,1);//大限
-//fnDrawGongName(context,11,2);//年
-//fnDrawGongName(context,11+2,3);//月0正月,1二月,2三月
-
-
-//fnDrawNongLiYue(context,11);//画农历月
-
-//fnDrawSanFangLine(context,1);//画三方线
 
 }
 
@@ -1311,6 +1301,17 @@ case 5:noffset=gDayMingIndex;break;
 var nstr= gGongName[(i-noffset+24)%12];
 return nstr;
 }
+//先天宫位转大运,流年,流月,流日 宫位 i:1-12 typeYMD:1先天,2大运,3流年,4月,5日
+function fnXinTianI2YunYMD(i,typeYMD){
+var noffset=0;
+switch (typeYMD){
+case 1:noffset=gXiantianMingIndex;break;
+case 2:noffset=gDayunMingIndex;break;
+case 3:noffset=gYearMingIndex;break;
+case 4:noffset=gMonthMingIndex;break;
+case 5:noffset=gDayMingIndex;break;}
+return (i-noffset+24)%12+1;
+}
 
 //返回大运年月四化
 function getYMDsihua(context,y,m,d){
@@ -1344,6 +1345,7 @@ var msihua="月:";
 var msihua1="月:";
 var dsihua="日:";
 var dsihua1="日:";
+var yunsanhe,yunsanhe1,ysanhe,ysanhe1,msanhe,msanhe1,dsanhe,dsanhe1;
 var gongwei,gewei;//年宫位,格位
 
 gDayunMingIndex=Math.floor( (y-myDaYun[0])/10 )+gXiantianMingIndex;//先天命宫在3,每10年+1
@@ -1380,12 +1382,21 @@ var gn=cZiWeiZhuXin.search(cSiHua);
 if (gn>=0){
 gongwei=i1;
 gewei=gn/2+1;
-break;
+break;}
 }
+if(ii==1) {
+daYunsihua +=cSiHua+sihuaTable[ii]+"-> "+fnGetGongNameByI(gongwei,1);
+var n2=fnXinTianI2YunYMD(gongwei,1);
+//如果是三合宫框出它,1命宫,5官禄,7迁移,9财帛
+if(n2 ==1 || n2 ==5 || n2 ==7 || n2 ==9) yunsanhe=true;
 }
-if(ii==1) daYunsihua +=cSiHua+sihuaTable[ii]+"->"+fnGetGongNameByI(gongwei,1)+"--)"+fnGetGongNameByI( (gongwei+6-1)%12+1,1);
 
-if(ii==4) daYunsihua1 +=cSiHua+sihuaTable[ii]+"->"+fnGetGongNameByI(gongwei,1)+"-->"+fnGetGongNameByI( (gongwei+6-1)%12+1,1);
+if(ii==4) {
+daYunsihua1 +=cSiHua+sihuaTable[ii]+"-> "+fnGetGongNameByI(gongwei,1)+" --> "+fnGetGongNameByI( (gongwei+6-1)%12+1,1);
+var n2=fnXinTianI2YunYMD(gongwei,1);
+//如果是三合宫框出它,1命宫,5官禄,7迁移,9财帛
+if(n2 ==1 || n2 ==5 || n2 ==7 || n2 ==9) yunsanhe1=true;
+}
 //fnGetGongNameByI(2,4);//i宫位置1-12,typei宫类型1先天,2大限,3年,4月,5日
 fnDrawSiHua(context,gongwei,1,gewei,sihuaTable[ii]);
 }//endfor
@@ -1393,10 +1404,14 @@ fnDrawSiHua(context,gongwei,1,gewei,sihuaTable[ii]);
 
 var midx=gLineLength/4+5;
 var midy=gLineLength/4+15;
-var midoffset=70;
+var midoffset=90;
 context.fillStyle = "green";
 context.fillText(daYunsihua,midx,midy);
 context.fillText(daYunsihua1,midx,midy+midoffset);
+
+context.strokeStyle = "#green"; 
+if(yunsanhe) context.strokeRect(midx+76, midy-12, 13*2+5, 13+3);
+if(yunsanhe1) context.strokeRect(midx+76, midy+midoffset-12, 13*2+5, 13+3);
 
 
 fnDrawGongName(context,gDayunMingIndex,1);
@@ -1414,16 +1429,29 @@ gewei=gn/2+1;
 break;
 }
 }
-if(ii==1) ysihua +=cSiHua+sihuaTable[ii]+"->"+fnGetGongNameByI(gongwei,2)+"--)"+fnGetGongNameByI( (gongwei+6-1)%12+1,2);
-
-if(ii==4) ysihua1 +=cSiHua+sihuaTable[ii]+"->"+fnGetGongNameByI(gongwei,2)+"-->"+fnGetGongNameByI( (gongwei+6-1)%12+1,2);
+if(ii==1) {
+ysihua +=cSiHua+sihuaTable[ii]+"-> "+fnGetGongNameByI(gongwei,2);
+var n2=fnXinTianI2YunYMD(gongwei,2);
+//如果是三合宫框出它,1命宫,5官禄,7迁移,9财帛
+if(n2 ==1 || n2 ==5 || n2 ==7 || n2 ==9) ysanhe=true;
+}
+if(ii==4) {
+ysihua1 +=cSiHua+sihuaTable[ii]+"-> "+fnGetGongNameByI(gongwei,2)+" --> "+fnGetGongNameByI( (gongwei+6-1)%12+1,2);
+var n2=fnXinTianI2YunYMD(gongwei,2);
+//如果是三合宫框出它,1命宫,5官禄,7迁移,9财帛
+if(n2 ==1 || n2 ==5 || n2 ==7 || n2 ==9) ysanhe1=true;
+}
 fnDrawSiHua(context,gongwei,2,gewei,sihuaTable[ii]);
 }//endfor
 
-midy+=15;
+midy+=20;
 context.fillStyle = "#4169E1";
 context.fillText(ysihua,midx,midy);
 context.fillText(ysihua1,midx,midy+midoffset);
+
+context.strokeStyle = "#4169E1"; 
+if(ysanhe) context.strokeRect(midx+76, midy-12, 13*2+5, 13+3);
+if(ysanhe1) context.strokeRect(midx+76, midy+midoffset-12, 13*2+5, 13+3);
 
 fnDrawGongName(context,cY1,2);
 
@@ -1440,24 +1468,35 @@ gewei=gn/2+1;
 break;
 }
 }
-if(ii==1) msihua +=cSiHua+sihuaTable[ii]+"->"+fnGetGongNameByI(gongwei,3)+"--)"+fnGetGongNameByI( (gongwei+6-1)%12+1,3);
-
-if(ii==4) msihua1 +=cSiHua+sihuaTable[ii]+"->"+fnGetGongNameByI(gongwei,3)+"-->"+fnGetGongNameByI( (gongwei+6-1)%12+1,3);
+if(ii==1) {
+msihua +=cSiHua+sihuaTable[ii]+"-> "+fnGetGongNameByI(gongwei,3);
+var n2=fnXinTianI2YunYMD(gongwei,3);
+//如果是三合宫框出它,1命宫,5官禄,7迁移,9财帛
+if(n2 ==1 || n2 ==5 || n2 ==7 || n2 ==9) msanhe=true;
+}
+if(ii==4) {
+msihua1 +=cSiHua+sihuaTable[ii]+"-> "+fnGetGongNameByI(gongwei,3)+" --> "+fnGetGongNameByI( (gongwei+6-1)%12+1,3);
+var n2=fnXinTianI2YunYMD(gongwei,3);
+//如果是三合宫框出它,1命宫,5官禄,7迁移,9财帛
+if(n2 ==1 || n2 ==5 || n2 ==7 || n2 ==9) msanhe1=true;
+}
 fnDrawSiHua(context,gongwei,3,gewei,sihuaTable[ii]);
 }//endfor
 
-midy+=15;
+midy+=20;
 context.fillStyle = "#CD950C";
 context.fillText(msihua,midx,midy);
 context.fillText(msihua1,midx,midy+midoffset);
+
+context.strokeStyle = "#CD950C"; 
+if(msanhe) context.strokeRect(midx+76, midy-12, 13*2+5, 13+3);
+if(msanhe1) context.strokeRect(midx+76, midy+midoffset-12, 13*2+5, 13+3);
 
 fnDrawGongName(context,gMonthMingIndex ,3);
 
 fnDrawNongLiYue(context,cY1);//画农历月
 
 //日四化
-
-
 
 //context.strokeRect(aGong[zD-1][0]-5, aGong[zD-1][1]-15,gLineLength/4, gLineLength/4);//高亮当日宫
 
@@ -1477,16 +1516,29 @@ gewei=gn/2+1;
 break;
 }
 }
-if(ii==1) dsihua +=cSiHua+sihuaTable[ii]+"->"+fnGetGongNameByI(gongwei,4)+"--)"+fnGetGongNameByI( (gongwei+6-1)%12+1,4);
-
-if(ii==4) dsihua1 +=cSiHua+sihuaTable[ii]+"->"+fnGetGongNameByI(gongwei,4)+"-->"+fnGetGongNameByI( (gongwei+6-1)%12+1,4);
+if(ii==1) {
+dsihua +=cSiHua+sihuaTable[ii]+"-> "+fnGetGongNameByI(gongwei,4);
+var n2=fnXinTianI2YunYMD(gongwei,4);
+//如果是三合宫框出它,1命宫,5官禄,7迁移,9财帛
+if(n2 ==1 || n2 ==5 || n2 ==7 || n2 ==9) dsanhe=true;
+}
+if(ii==4) {
+dsihua1 +=cSiHua+sihuaTable[ii]+"-> "+fnGetGongNameByI(gongwei,4)+" --> "+fnGetGongNameByI( (gongwei+6-1)%12+1,4);
+var n2=fnXinTianI2YunYMD(gongwei,4);
+//如果是三合宫框出它,1命宫,5官禄,7迁移,9财帛
+if(n2 ==1 || n2 ==5 || n2 ==7 || n2 ==9) dsanhe1=true;
+}
 if (gShowDaySiHua) fnDrawSiHua(context,gongwei,4,gewei,sihuaTable[ii]);
 }//endfor
 
-midy+=15;
+midy+=20;
 context.fillStyle = "red";
 context.fillText(dsihua,midx,midy);
 context.fillText(dsihua1,midx,midy+midoffset);
+
+context.strokeStyle = "red"; 
+if(dsanhe) context.strokeRect(midx+76, midy-12, 13*2+5, 13+3);
+if(dsanhe1) context.strokeRect(midx+76, midy+midoffset-12, 13*2+5, 13+3);
 
 return ysihua+"<BR>"+msihua+"<BR>";
 }
@@ -1675,8 +1727,10 @@ fnDrawSanCeng(context);
 //document.write(gXiantianMingIndex,gDayunMingIndex,gYearMingIndex,gMonthMingIndex,gDayMingIndex);
 fnDrawGongPos(context,gDayMingIndex);//标出当日命宫
 
-fnGetGongNameByI(2,4);//i宫位置1-12,typei宫类型1先天,2大限,3年,4月,5日
 
+//var sssss=fnXinTianI2YunYMD(5,2);//固定宫位置1-12,typei宫类型1先天,2大限,3年,4月,5日
+
+//document.write(sssss);
 //valign 调格子中内容的垂向（上下）位置，valign=“top“上面,  valign=“middle“中间，或 valign=“bottom 下面。
 //align 调格子中内容的（左右）横向位置，align="LEFT“ 左边对齐, align="CENTER“中间 或 align="RIGHT“右边对齐。
 </SCRIPT>
