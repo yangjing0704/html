@@ -691,7 +691,7 @@ var clickD=tD;
 //document.write(tD);
 //////////////////////////////////////////////////////////////////////////////
 
-var width = "160";
+var width = "173";
 var offsetx = 2;
 var offsety = 8;
 
@@ -725,7 +725,7 @@ festival = '<TABLE WIDTH=100% BORDER=0 CELLPADDING=2 CELLSPACING=0 BGCOLOR="#CCF
 '<FONT COLOR="#000000" STYLE="font-size:9pt;">'+cld[d].solarTerms + ' ' + cld[d].solarFestival + ' ' + cld[d].lunarFestival+'</FONT></TD>'+
 '</TR></TABLE>';
 
-s= '<TABLE WIDTH="160" BORDER=0 CELLPADDING="2" CELLSPACING=0 BGCOLOR="#000066" style="filter:Alpha(opacity=80)"><TR><TD>' +
+s= '<TABLE WIDTH="173" BORDER=0 CELLPADDING="2" CELLSPACING=0 BGCOLOR="#000066" style="filter:Alpha(opacity=80)"><TR><TD>' +
 '<TABLE WIDTH=100% BORDER=0 CELLPADDING=0 CELLSPACING=0><TR><TD ALIGN="right"><FONT COLOR="#ffffff" STYLE="font-size:9pt;">'+
 cld[d].sYear+' 年 '+cld[d].sMonth+' 月 '+cld[d].sDay+' 日<br>星期'+cld[d].week+'<br>'+
 '<font color="violet">农历'+(cld[d].isLeap?'闰 ':' ')+cld[d].lMonth+' 月 '+cld[d].lDay+' 日</font><br>'+
@@ -1313,10 +1313,12 @@ case 5:noffset=gDayMingIndex;break;}
 return (i-noffset+24)%12+1;
 }
 
+var gNianZhu,gYueZhu,gRiZhu;
+
 //返回大运年月四化
 function getYMDsihua(context,y,m,d){
 var cY, cM, cD; //年柱天干,月柱天干,日柱天干
-var cY1;
+var cY1,cM1,cD1;
 
 if(m<3) cY=(y-1900+36-1)%10+1;
 else cY=(y-1900+36)%10+1;
@@ -1329,13 +1331,15 @@ var term2=sTerm(y,2); //立春日期
 ////////月柱 1900年1月小寒以前为 丙子月(60进制12)
 var firstNode = sTerm(y,(m-1)*2) //返回当月「节」为几日开始
 cM = ((y-1900)*12+m+12-1)%10+1;
-
+cM1 = ((y-1900)*12+m+12-1)%12+1;
 
 //依节气调整二月分的年柱, 以立春为界
 if(m==2 && d>=term2) cY=(y-1900+36)%10+1;
 if(m==2 && d>=term2) cY1=(y-1900+36)%12+1;
 //依节气月柱, 以「节」为界
 if(d>=firstNode) cM = ((y-1900)*12+m+13-1)%10+1;
+if(d>=firstNode) cM1 = ((y-1900)*12+m+13-1)%12+1;
+
 
 var daYunsihua="运:";
 var daYunsihua1="运:";
@@ -1367,6 +1371,7 @@ zM=(zY+n_m+24-2)%12+1;
 zD=(zM+n_d+24-2)%12+1;
 
 gDayMingIndex=zD;
+
 
 
 
@@ -1502,6 +1507,12 @@ fnDrawNongLiYue(context,cY1);//画农历月
 
 var dayCyclical = Date.UTC(y,m-1,1,0,0,0,0)/86400000+25567+10;
 var cD11=(dayCyclical+d-1)%10+1;//日天干
+cD1 = (dayCyclical+d-1)%12+1;
+
+gNianZhu=Gan[cY-1]+Zhi[cY1-1]+"年";
+gYueZhu =Gan[cM-1]+Zhi[cM1-1]+"月";
+gRiZhu =Gan[cD11-1]+Zhi[cD1-1]+"日";
+
 //日四化
 for(var ii=1;ii<5;ii++) {
 var cSiHua=sihuaTable[cD11*5+ii];
@@ -1539,6 +1550,24 @@ context.fillText(dsihua1,midx,midy+midoffset);
 context.strokeStyle = "red"; 
 if(dsanhe) context.strokeRect(midx+76, midy-12, 13*2+5, 13+3);
 if(dsanhe1) context.strokeRect(midx+76, midy+midoffset-12, 13*2+5, 13+3);
+
+//画天干地支
+context.save();
+midy+=40;
+context.beginPath();
+context.moveTo(gLineLength/4, midy+midoffset-18);
+context.lineTo(gLineLength/4*3, midy+midoffset-18);
+context.moveTo(gLineLength/4, midy+midoffset+8);
+context.lineTo(gLineLength/4*3, midy+midoffset+8);
+context.closePath();
+context.lineWidth = 1.2;
+context.strokeStyle = "green";
+context.stroke();
+
+context.font = "15px 新宋体";// 设置字体
+context.fillStyle = "#A0522D";
+context.fillText(gNianZhu+" "+gYueZhu+" "+gRiZhu,midx+55,midy+midoffset);
+context.restore();
 
 return ysihua+"<BR>"+msihua+"<BR>";
 }
@@ -1618,7 +1647,7 @@ function fnDrawSanCeng(context){
 context.font = "13px 新宋体";// 设置字体
 
 var x=gLineLength/4+6;
-var y=gLineLength/4*2.7;
+var y=gLineLength/4*3-25;
 
 
 context.fillStyle = "green";
@@ -1728,9 +1757,10 @@ fnDrawSanCeng(context);
 fnDrawGongPos(context,gDayMingIndex);//标出当日命宫
 
 
-//var sssss=fnXinTianI2YunYMD(5,2);//固定宫位置1-12,typei宫类型1先天,2大限,3年,4月,5日
 
-//document.write(sssss);
+//var sssss=fnXinTianI2YunYMD(5,2);//固定宫位置1-12,typei宫类型1先天,2大限,3年,4月,5日
+//cld[tD].cYear,cld[tD].cMonth,cld[tD].cDay
+//document.write(gNianZhu,gYueZhu,gRiZhu);
 //valign 调格子中内容的垂向（上下）位置，valign=“top“上面,  valign=“middle“中间，或 valign=“bottom 下面。
 //align 调格子中内容的（左右）横向位置，align="LEFT“ 左边对齐, align="CENTER“中间 或 align="RIGHT“右边对齐。
 </SCRIPT>
