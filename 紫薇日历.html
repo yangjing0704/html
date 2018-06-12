@@ -1359,7 +1359,7 @@ var lY1    = lObj.year;           //农历年
 var lM1    = lObj.month;          //农历月
 var lD1    = lObj.day;            //农历日
 
-gMonthMingIndex = (cY1+lM1-2)%12+1;
+gMonthMingIndex = (cY1+cM1+8)%12+1;
 var n_y = lY1;
 var n_m = lM1;
 var n_d = lD1;
