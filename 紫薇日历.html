@@ -120,6 +120,7 @@ var gGongName1=new Array(
 );
 var gMonthName = new Array("虎","兔","龙","蛇","马","羊","猴","鸡","狗","猪","鼠","牛");//new Array("正","二","三","四","五","六","七","八","九","十","冬","腊");
 var gShowDaySiHua=false;
+var gShowMonthSiHua=false;
 //大运起始年,天干:戊 序号5
 var myDaYun=new Array(
 1994,5
@@ -377,6 +378,7 @@ lY, lM, lD++, lL,
 cY ,cM, cD );
 
 //todo:四化
+
 var n_y = lY;
 var n_m = lM;
 var n_d = lD;
@@ -416,6 +418,7 @@ if (cbq==0){this[i].solarFestival +="迁";cbq=1;}
 this[i].solarFestival += cSiHua+sihuaTable[ii]+" ";
 }
 }
+
 
 
 //this[i].solarFestival += cziweiqian;
@@ -1267,6 +1270,65 @@ context.strokeText(nstr, x, y);
 context.restore();
 }
 
+//在十二格内画月的天干地支,nStart起始宫位
+function fnDrawMonthGanZhi(context,nY,nStart){
+
+context.save();
+context.font = "18px 宋体";// 设置字体
+context.fillStyle = "blue";// 设置填充颜色
+var nYb=nY;
+switch(nY){
+case 1: //甲己
+	nY=3;//丙
+	break;
+case 6: //甲己
+	nY=3;//丙
+	break;
+case 2: //乙庚
+	nY=5;//戊
+	break;
+case 7: //乙庚
+	nY=5;//戊
+	break;
+case 3: //丙幸
+	nY=7;//庚
+	break;
+case 8: //丙幸
+	nY=7;//庚
+	break;
+case 4: //丁壬
+	nY=9;//壬
+	break;
+case 9: //丁壬
+	nY=9;//壬
+	break;
+case 5: //戊葵
+	nY=1;//甲
+	break;
+case 10: //戊葵
+	nY=1;//甲
+	break;
+}
+
+for (var i=1;i<13;i++){
+var i2=(i+12+nStart-2)%12+1;
+var x =aGong[i2-1][0];
+var y =aGong[i2-1][1];
+
+var nYueZhu =Gan[(i+nY+10-2)%10]+Zhi[(24+i2-nStart+2)%12];
+
+
+x+=0;
+y+=gLineLength/4-40;
+
+//context.fillText(nstr, x, y);
+//context.lineWidth = 0.5;
+//context.strokeStyle = "#CC0000";
+context.fillText(nYueZhu[0], x, y);
+context.fillText(nYueZhu[1], x, y+22);
+}
+context.restore();
+}
 //画主星
 function fnDrawZhuXing(context){
 
@@ -1485,7 +1547,7 @@ var n2=fnXinTianI2YunYMD(gongwei,3);
 //如果是三合宫框出它,1命宫,5官禄,7迁移,9财帛
 if(n2 ==1 || n2 ==5 || n2 ==7 || n2 ==9) msanhe1=true;
 }
-fnDrawSiHua(context,gongwei,3,gewei,sihuaTable[ii]);
+if (gShowMonthSiHua) fnDrawSiHua(context,gongwei,3,gewei,sihuaTable[ii]);
 }//endfor
 
 midy+=20;
@@ -1501,6 +1563,7 @@ fnDrawGongName(context,gMonthMingIndex ,3);
 
 fnDrawNongLiYue(context,cY1);//画农历月
 
+
 //日四化
 
 //context.strokeRect(aGong[zD-1][0]-5, aGong[zD-1][1]-15,gLineLength/4, gLineLength/4);//高亮当日宫
@@ -1512,6 +1575,8 @@ cD1 = (dayCyclical+d-1)%12+1;
 gNianZhu=Gan[cY-1]+Zhi[cY1-1]+"年";
 gYueZhu =Gan[cM-1]+Zhi[cM1-1]+"月";
 gRiZhu =Gan[cD11-1]+Zhi[cD1-1]+"日";
+
+fnDrawMonthGanZhi(context,cY,cY1);//画月天干地支
 
 //日四化
 for(var ii=1;ii<5;ii++) {
@@ -1641,6 +1706,7 @@ context.closePath();
 }
 
 var gKuangLiuRi;
+var gKuangLiuYue;
 
 function fnDrawSanCeng(context){
 
@@ -1673,11 +1739,13 @@ context.fillText("流年", x+xn+4, y+15);
 xn+=38;
 context.fillStyle = "#CD950C";//橘黄
 context.strokeStyle = "#CC0000"; 
-context.fillRect(x+xn, y, 13*2+8, 13+6);
-context.strokeRect(x+xn, y, 13*2+8, 13+6);
+//context.fillRect(x+xn, y, 13*2+8, 13+6);
+if (gShowMonthSiHua) context.strokeRect(x+xn, y, 13*2+8, 13+6);
 
-context.fillStyle = "white";
+context.fillStyle = "#CD950C";
 context.fillText("流月", x+xn+4, y+15);
+
+gKuangLiuYue={x: x+xn, y: y ,w:13*2+8 ,h:13+6};
 
 xn+=38;
 context.fillStyle = "#CD950C";//橘黄
@@ -1718,6 +1786,10 @@ canvas.addEventListener('click', function(e){
   if(x0 >= x && x0 <= (x+w) && y0>=y && y0<= (y+h)) {
   gShowDaySiHua=gShowDaySiHua?false:true;changeCld();return;}
   
+  var x=gKuangLiuYue.x,y=gKuangLiuYue.y,w=gKuangLiuYue.w,h=gKuangLiuYue.h;
+  if(x0 >= x && x0 <= (x+w) && y0>=y && y0<= (y+h)) {
+  gShowMonthSiHua=gShowMonthSiHua?false:true;changeCld();return;}
+  
   //点入中宫
   x=gLineLength/4;y=gLineLength/4;w=gLineLength/2;h=gLineLength/2;
   if(x0 >= x && x0 <= (x+w) && y0>=y && y0<= (y+h)) return;
@@ -1749,7 +1821,7 @@ fnDrawZhuXing(context);
 
 getYMDsihua(context,tY,tM+1,tD);
 
-fnDrawSanFangLine(context,gMonthMingIndex);//画三方线
+fnDrawSanFangLine(context,gYearMingIndex);//画三方线
 
 fnDrawSanCeng(context);
 
