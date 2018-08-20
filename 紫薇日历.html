@@ -399,7 +399,7 @@ var cb=0;
 var cbq=0;
 
 //日命宫四化
-for(var ii=1;ii<5;ii++) {
+/*for(var ii=1;ii<5;ii++) {
 var cSiHua=sihuaTable[indexi*5+ii];
 if(cziwei.search(cSiHua)>=0) {
 
@@ -417,7 +417,7 @@ if(cziweiqian.search(cSiHua)>=0) {
 if (cbq==0){this[i].solarFestival +="迁";cbq=1;}
 this[i].solarFestival += cSiHua+sihuaTable[ii]+" ";
 }
-}
+}*/
 
 
 
@@ -725,11 +725,11 @@ if(cld[d].solarTerms == '' && cld[d].solarFestival == '' && cld[d].lunarFestival
 festival = '';
 else
 festival = '<TABLE WIDTH=100% BORDER=0 CELLPADDING=2 CELLSPACING=0 BGCOLOR="#CCFFCC"><TR><TD>'+
-'<FONT COLOR="#000000" STYLE="font-size:9pt;">'+cld[d].solarTerms + ' ' + cld[d].solarFestival + ' ' + cld[d].lunarFestival+'</FONT></TD>'+
+'<FONT COLOR="#000000" STYLE="font-size:10pt;">'+cld[d].solarTerms + ' ' + cld[d].solarFestival + ' ' + cld[d].lunarFestival+'</FONT></TD>'+
 '</TR></TABLE>';
 
 s= '<TABLE WIDTH="173" BORDER=0 CELLPADDING="2" CELLSPACING=0 BGCOLOR="#000066" style="filter:Alpha(opacity=80)"><TR><TD>' +
-'<TABLE WIDTH=100% BORDER=0 CELLPADDING=0 CELLSPACING=0><TR><TD ALIGN="right"><FONT COLOR="#ffffff" STYLE="font-size:9pt;">'+
+'<TABLE WIDTH=100% BORDER=0 CELLPADDING=0 CELLSPACING=0><TR><TD ALIGN="right"><FONT COLOR="#ffffff" STYLE="font-size:10pt;">'+
 cld[d].sYear+' 年 '+cld[d].sMonth+' 月 '+cld[d].sDay+' 日<br>星期'+cld[d].week+'<br>'+
 '<font color="violet">农历'+(cld[d].isLeap?'闰 ':' ')+cld[d].lMonth+' 月 '+cld[d].lDay+' 日</font><br>'+
 '<font color="yellow">'+cld[d].cYear+'年 '+cld[d].cMonth+'月 '+cld[d].cDay + '日</font>'+
@@ -1200,6 +1200,7 @@ y+=gLineLength/4-18;
 context.fillText(nstr, x, y-noffset);
 
 if (nii==0) {
+context.strokeStyle = "blue";
 if (nHigh==3) context.strokeRect(aGong[i-1][0]-5, aGong[i-1][1]-15,gLineLength/4, gLineLength/4);//高亮当月宫
 else context.strokeRect(x, y-noffset-11, 39, 13);//画边框
 }
@@ -1632,6 +1633,25 @@ context.stroke();
 context.font = "15px 新宋体";// 设置字体
 context.fillStyle = "#A0522D";
 context.fillText(gNianZhu+" "+gYueZhu+" "+gRiZhu,midx+55,midy+midoffset);
+
+context.restore();
+
+context.save();
+
+context.beginPath();
+context.moveTo(gLineLength/4*3-60-12,gLineLength/4+50-35);
+context.lineTo(gLineLength/4*3-60-12,gLineLength/4+50+55+10);
+
+context.closePath();
+context.lineWidth = 1.2;
+context.strokeStyle = "green";
+context.stroke();
+
+
+context.font = "45px 新宋体";// 设置字体
+context.fillStyle = "blue";
+context.fillText(gNianZhu[0],gLineLength/4*3-60,gLineLength/4+50);
+context.fillText(gNianZhu[1],gLineLength/4*3-60,gLineLength/4+50+55);
 context.restore();
 
 return ysihua+"<BR>"+msihua+"<BR>";
@@ -1875,13 +1895,13 @@ fnDrawGongPos(context,gDayMingIndex);//标出当日命宫
             size=3></FONT><BR></TD></TR>
         
 		<TR align=middle bgColor=#e0e0e0>
-          <TD width=54><FONT color=red>日</FONT></TD>
-          <TD width=54>一</TD>
-          <TD width=54>二</TD>
-          <TD width=54>三</TD>
-          <TD width=54>四</TD>
-          <TD width=54>五</TD>
-          <TD width=54><FONT color=green>六</FONT></TD></TR>
+          <TD width=74><FONT color=red>日</FONT></TD>
+          <TD width=74>一</TD>
+          <TD width=74>二</TD>
+          <TD width=74>三</TD>
+          <TD width=74>四</TD>
+          <TD width=74>五</TD>
+          <TD width=74><FONT color=green>六</FONT></TD></TR>
         
 		<SCRIPT language=JavaScript><!--
             var gNum
@@ -1894,7 +1914,7 @@ fnDrawGongPos(context,gDayMingIndex);//标出当日命宫
                   if(j == 6)
                      if(i%2==1) document.write(' color=red')
                         else document.write(' color=green')
-                  document.write(' TITLE=""> </font><br><font id="LD' + gNum + '" size=2 style="font-size:9pt"> </font></td>')
+                  document.write(' TITLE=""> </font><br><font id="LD' + gNum + '" size=2 style="font-size:10pt"> </font></td>')
                }
                document.write('</tr>')
             }
