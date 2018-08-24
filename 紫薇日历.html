@@ -89,6 +89,34 @@ var myZiWeiTable=new Array(
 "戌","太阳龙池台辅旬空",
 "亥","月德天官");
 
+var gDiZhiQiTable=new Array(
+"年月","寅","卯","辰","巳","午","未","申","酉","戌","亥","子","丑",
+"子年","●","●","●","●","●","●","⑦","⑧","⑨","⑩","▄","●",
+"丑年","●","●","●","●","●","●","⑦","⑧","⑨","⑩","⊙","▄",
+"寅年","●","●","●","●","●","●","▄","⑧","⑨","⑩","⊙","⊙",
+"卯年","①","▄","▄","▄","▄","▄","▄","▄","⑨","⑩","⊙","⊙",
+"辰年","①","②","▄","▄","▄","▄","▄","▄","▄","⑩","⊙","⊙",
+"巳年","①","②","③","▄","▄","▄","▄","▄","▄","▄","⊙","⊙",
+"午年","①","②","③","④","▄","▄","▄","▄","▄","▄","▄","⊙",
+"未年","①","②","③","④","⑤","▄","●","●","●","●","●","●",
+"申年","▄","▄","▄","▄","⑤","⑥","▄","●","●","●","●","●",
+"酉年","●","●","●","●","▄","⑥","⑦","▄","●","●","●","●",
+"戌年","●","●","●","▲","▲","⑥","⑦","⑧","▄","●","●","●",
+"亥年","●","●","●","▄","▄","▄","⑦","⑧","⑨","▄","●","●");
+
+var gTianGanQiTable=new Array(
+"年月","寅","卯","辰","巳","午","未","申","酉","戌","亥","子","丑",
+"甲年","●","●","●","●","▄","⑥","⑦","⑧","▄","●","●","●",
+"乙年","●","●","●","▄","⑤","⑥","⑦","▄","●","●","●","●",
+"丙年","●","●","▄","④","⑤","⑥","▄","▄","▄","▄","▄","▄",
+"丁年","▲","②","③","④","⑤","▄","▄","▄","▄","▄","▄","▄",
+"戊年","①","②","③","④","▄","▄","▄","▄","▄","▄","▄","⊙",
+"己年","①","②","③","▄","▄","▄","▄","▄","▄","▄","⊙","⊙",
+"庚年","①","②","▄","▄","▄","▄","▄","▄","▄","⑩","⊙","⊙",
+"辛年","①","▄","▄","▄","▄","▄","▄","▄","⑨","⑩","⊙","▄",
+"壬年","●","●","●","●","●","●","▄","⑧","⑨","⑩","▄","●",
+"葵年","●","●","●","●","●","▄","⑦","⑧","⑨","▄","●","●");
+
 var gGongName=new Array(
 "命宫",
 "父母",
@@ -1276,7 +1304,7 @@ function fnDrawMonthGanZhi(context,nY,nStart){
 
 context.save();
 context.font = "18px 宋体";// 设置字体
-context.fillStyle = "blue";// 设置填充颜色
+context.fillStyle = "#CD950C";// 设置填充颜色
 var nYb=nY;
 switch(nY){
 case 1: //甲己
@@ -1327,6 +1355,67 @@ y+=gLineLength/4-40;
 //context.strokeStyle = "#CC0000";
 context.fillText(nYueZhu[0], x, y);
 context.fillText(nYueZhu[1], x, y+22);
+}
+context.restore();
+}
+
+//在十二格内画气的交接,nStart起始宫位
+function fnDrawQiJiaoJie(context,nY,nStart){
+
+context.save();
+context.font = "18px 宋体";// 设置字体
+context.fillStyle = "blue";// 设置填充颜色
+
+for (var i=1;i<13;i++){
+var i2=(i+12+nStart-2)%12+1;
+var x =aGong[i2-1][0];
+var y =aGong[i2-1][1];
+
+//var nYueZhu =Gan[(i+nY+10-2)%10]+Zhi[(24+i2-nStart+2)%12];
+
+
+x+=30;
+y+=gLineLength/4-55;
+
+var tt0 = gTianGanQiTable[13*nY+i];
+context.strokeStyle = "blue";
+switch(tt0){
+case "●":
+context.strokeRect(x, y, 24, 13);
+context.strokeRect(x+24+3, y, 24, 13);
+break;
+case "▄":
+context.strokeRect(x, y, 51, 13);
+break;
+case "▲":
+context.strokeRect(x, y, 24, 13);
+break;
+}
+
+
+y+=22;
+var tt1 = gDiZhiQiTable[13*nStart+i];
+context.strokeStyle = "grey";
+switch(tt1){
+case "●":
+context.strokeRect(x, y, 24, 13);
+context.strokeRect(x+24+3, y, 24, 13);
+break;
+case "▄":
+context.strokeRect(x, y, 51, 13);
+break;
+case "▲":
+context.strokeRect(x, y, 24, 13);
+break;
+}
+//context.lineWidth = 0.5;
+
+//context.strokeRect(x, y, 51, 13);
+//context.fillText(tt1, x, y);
+
+//context.strokeStyle = "grey";
+//context.strokeRect(x, y+22, 51, 13);
+
 }
 context.restore();
 }
@@ -1578,6 +1667,7 @@ gYueZhu =Gan[cM-1]+Zhi[cM1-1]+"月";
 gRiZhu =Gan[cD11-1]+Zhi[cD1-1]+"日";
 
 fnDrawMonthGanZhi(context,cY,cY1);//画月天干地支
+fnDrawQiJiaoJie(context,cY,cY1);//画气的交接
 
 //日四化
 for(var ii=1;ii<5;ii++) {
@@ -1651,6 +1741,7 @@ context.stroke();
 context.font = "45px 新宋体";// 设置字体
 context.fillStyle = "blue";
 context.fillText(gNianZhu[0],gLineLength/4*3-60,gLineLength/4+50);
+context.fillStyle = "grey";
 context.fillText(gNianZhu[1],gLineLength/4*3-60,gLineLength/4+50+55);
 context.restore();
 
@@ -1919,29 +2010,44 @@ fnDrawGongPos(context,gDayMingIndex);//标出当日命宫
                document.write('</tr>')
             }
             //--></SCRIPT>
-        
+        <!--这可以写字-->
 		</TBODY></TABLE>
-		
-		<BR>
-		
-		</TD>
+		<!--这可以写字<BR>-->
+
+<FONT color=grey>
+十二地支交接: 数字为空 前●上年混合,后●下年混合,▄纯年<BR>
+&nbsp&nbsp 寅 卯 辰 巳 午 未 申 酉 戌 亥 子 丑<BR>
+子年 ● ● ● ● ● ● ⑦ ⑧ ⑨ ⑩ ▄ ●<BR>
+丑年 ● ● ● ● ● ● ⑦ ⑧ ⑨ ⑩ ⊙ ▄<BR>
+寅年 ● ● ● ● ● ● ▄ ⑧ ⑨ ⑩ ⊙ ⊙<BR>
+卯年 ① ▄ ▄ ▄ ▄ ▄ ▄ ▄ ⑨ ⑩ ⊙ ⊙<BR>
+辰年 ① ② ▄ ▄ ▄ ▄ ▄ ▄ ▄ ⑩ ⊙ ⊙<BR>
+巳年 ① ② ③ ▄ ▄ ▄ ▄ ▄ ▄ ▄ ⊙ ⊙<BR>
+午年 ① ② ③ ④ ▄ ▄ ▄ ▄ ▄ ▄ ▄ ⊙<BR>
+未年 ① ② ③ ④ ⑤ ▄ ● ● ● ● ● ●<BR>
+申年 ▄ ▄ ▄ ▄ ⑤ ⑥ ▄ ● ● ● ● ●<BR>
+酉年 ● ● ● ● ▄ ⑥ ⑦ ▄ ● ● ● ●<BR>
+戌年 ● ● ● ▲ ▲ ⑥ ⑦ ⑧ ▄ ● ● ●<BR>
+亥年 ● ● ● ▄ ▄ ▄ ⑦ ⑧ ⑨ ▄ ● ●<BR>
+</FONT>
 
 
-  
+  </TD>
   </TR></TBODY></TABLE></FORM>
 
 <HR width="90%" color=#cccccc noShade SIZE=1>
 
 <FONT style="FONT-SIZE: 9pt" face=ARIAL size=2>
-<FONT color=red>甲</FONT>廉破武阳、<FONT color=red>乙</FONT>机梁紫阴、
 
-<FONT color=red>丙</FONT>同机昌廉、<FONT color=red>丁</FONT>阴同机巨、
+<FONT color=red>甲</FONT>-11到5,9到+3、<FONT color=red>乙</FONT>-10到4,8到+2、
 
-<FONT color=red>戊</FONT>贪阴右机、<FONT color=red>己</FONT>武贪梁曲、
+<FONT color=red>丙</FONT>-9到3,7到+1、<FONT color=red>丁</FONT>6到12、
 
-<FONT color=red>庚</FONT>阳武府相、<FONT color=red>辛</FONT>巨阳曲昌、
+<FONT color=red>戊</FONT>5到11、<FONT color=red>己</FONT>4到10、
 
-<FONT color=red>壬</FONT>梁紫左武、<FONT color=red>癸</FONT>破巨阴贪<BR></CENTER>
+<FONT color=red>庚</FONT>3到9、<FONT color=red>辛</FONT>2到8,12到+6、
+
+<FONT color=red>壬</FONT>1到7,11到+5、<FONT color=red>癸</FONT>-12到6,10到+4<BR></CENTER>
 
 
 </BODY></HTML>
