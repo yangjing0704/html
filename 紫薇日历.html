@@ -117,6 +117,39 @@ var gTianGanQiTable=new Array(
 "壬年","●","●","●","●","●","●","▄","⑧","⑨","⑩","▄","●",
 "葵年","●","●","●","●","●","▄","⑦","⑧","⑨","▄","●","●");
 
+
+var gGanQiText=new Array(
+"甲 ● ● ● ● ▄ ⑥ ⑦ ⑧ ▄ ● ● ●",
+"乙 ● ● ● ▄ ⑤ ⑥ ⑦ ▄ ● ● ● ●",
+"丙 ● ● ▄ ④ ⑤ ⑥ ▄ ▄ ▄ ▄ ▄ ▄",
+"丁 ▲ ② ③ ④ ⑤ ▄ ▄ ▄ ▄ ▄ ▄ ▄",
+"戊 ① ② ③ ④ ▄ ▄ ▄ ▄ ▄ ▄ ▄ ⊙",
+"己 ① ② ③ ▄ ▄ ▄ ▄ ▄ ▄ ▄ ⊙ ⊙",
+"庚 ① ② ▄ ▄ ▄ ▄ ▄ ▄ ▄ ⑩ ⊙ ⊙",
+"辛 ① ▄ ▄ ▄ ▄ ▄ ▄ ▄ ⑨ ⑩ ⊙ ▄",
+"壬 ● ● ● ● ● ● ▄ ⑧ ⑨ ⑩ ▄ ●",
+"葵 ● ● ● ● ● ▄ ⑦ ⑧ ⑨ ▄ ● ●");
+
+var gZhiQiText=new Array(
+"子 ● ● ● ● ● ● ⑦ ⑧ ⑨ ⑩ ▄ ●",
+"丑 ● ● ● ● ● ● ⑦ ⑧ ⑨ ⑩ ⊙ ▄",
+"寅 ● ● ● ● ● ● ▄ ⑧ ⑨ ⑩ ⊙ ⊙",
+"卯 ① ▄ ▄ ▄ ▄ ▄ ▄ ▄ ⑨ ⑩ ⊙ ⊙",
+"辰 ① ② ▄ ▄ ▄ ▄ ▄ ▄ ▄ ⑩ ⊙ ⊙",
+"巳 ① ② ③ ▄ ▄ ▄ ▄ ▄ ▄ ▄ ⊙ ⊙",
+"午 ① ② ③ ④ ▄ ▄ ▄ ▄ ▄ ▄ ▄ ⊙",
+"未 ① ② ③ ④ ⑤ ▄ ● ● ● ● ● ●",
+"申 ▄ ▄ ▄ ▄ ⑤ ⑥ ▄ ● ● ● ● ●",
+"酉 ● ● ● ● ▄ ⑥ ⑦ ▄ ● ● ● ●",
+"戌 ● ● ● ▲ ▲ ⑥ ⑦ ⑧ ▄ ● ● ●",
+"亥 ● ● ● ▄ ▄ ▄ ⑦ ⑧ ⑨ ▄ ● ●");
+
+
+
+var gTodayGanQiText;
+var gTodayZhiQiText;
+
+
 var gGongName=new Array(
 "命宫",
 "父母",
@@ -1371,9 +1404,6 @@ var i2=(i+12+nStart-2)%12+1;
 var x =aGong[i2-1][0];
 var y =aGong[i2-1][1];
 
-//var nYueZhu =Gan[(i+nY+10-2)%10]+Zhi[(24+i2-nStart+2)%12];
-
-
 x+=30;
 y+=gLineLength/4-55;
 
@@ -1409,12 +1439,7 @@ context.strokeRect(x, y, 24, 13);
 break;
 }
 //context.lineWidth = 0.5;
-
-//context.strokeRect(x, y, 51, 13);
 //context.fillText(tt1, x, y);
-
-//context.strokeStyle = "grey";
-//context.strokeRect(x, y+22, 51, 13);
 
 }
 context.restore();
@@ -1666,6 +1691,10 @@ gNianZhu=Gan[cY-1]+Zhi[cY1-1]+"年";
 gYueZhu =Gan[cM-1]+Zhi[cM1-1]+"月";
 gRiZhu =Gan[cD11-1]+Zhi[cD1-1]+"日";
 
+gTodayGanQiText=gGanQiText[cD11-1];
+gTodayZhiQiText=gZhiQiText[cD1-1];
+
+
 fnDrawMonthGanZhi(context,cY,cY1);//画月天干地支
 fnDrawQiJiaoJie(context,cY,cY1);//画气的交接
 
@@ -1707,8 +1736,36 @@ context.strokeStyle = "red";
 if(dsanhe) context.strokeRect(midx+76, midy-12, 13*2+5, 13+3);
 if(dsanhe1) context.strokeRect(midx+76, midy+midoffset-12, 13*2+5, 13+3);
 
+context.save();//画竖线
+context.beginPath();
+context.moveTo(gLineLength/4*3-60-12,gLineLength/4+50-35);
+context.lineTo(gLineLength/4*3-60-12,gLineLength/4+50+55+10);
+
+context.closePath();
+context.lineWidth = 1.2;
+context.strokeStyle = "green";
+context.stroke();//
+
+
+context.font = "45px 新宋体";// 画年干支大
+context.fillStyle = "blue";
+context.fillText(gNianZhu[0],gLineLength/4*3-60,gLineLength/4+50);
+context.fillStyle = "grey";
+context.fillText(gNianZhu[1],gLineLength/4*3-60,gLineLength/4+50+55);
+context.restore();
+
+context.font = "25px 新宋体";
+context.fillStyle = "#CD950C";
+context.fillText(gYueZhu[0],gLineLength/4*3-70,gLineLength/2);
+context.fillText(gYueZhu[1],gLineLength/4*3-70,gLineLength/2+30);
+
+context.font = "20px 新宋体";
+context.fillStyle = "red";
+context.fillText(gRiZhu[0],gLineLength/4*3-33,gLineLength/2+5);
+context.fillText(gRiZhu[1],gLineLength/4*3-33,gLineLength/2+30);
+
 //画天干地支
-context.save();
+/*context.save();//画平行线
 midy+=40;
 context.beginPath();
 context.moveTo(gLineLength/4, midy+midoffset-18);
@@ -1718,32 +1775,21 @@ context.lineTo(gLineLength/4*3, midy+midoffset+8);
 context.closePath();
 context.lineWidth = 1.2;
 context.strokeStyle = "green";
-context.stroke();
+context.stroke();//
 
-context.font = "15px 新宋体";// 设置字体
+context.font = "15px 新宋体";
 context.fillStyle = "#A0522D";
-context.fillText(gNianZhu+" "+gYueZhu+" "+gRiZhu,midx+55,midy+midoffset);
+context.fillText(gNianZhu+" "+gYueZhu+" "+gRiZhu,midx+55,midy+midoffset);// 年月日干支
 
-context.restore();
+context.restore();*/
 
-context.save();
+context.font = "14px 新宋体";
+context.fillStyle = "green";
+var tshicheng="   寅 卯 辰 巳 午 未 申 酉 戌 亥 子 丑";
+context.fillText(tshicheng,gLineLength/4+5,gLineLength/4*3-77);
+context.fillText(gTodayGanQiText,gLineLength/4+5,gLineLength/4*3-57);
+context.fillText(gTodayZhiQiText,gLineLength/4+5,gLineLength/4*3-37);
 
-context.beginPath();
-context.moveTo(gLineLength/4*3-60-12,gLineLength/4+50-35);
-context.lineTo(gLineLength/4*3-60-12,gLineLength/4+50+55+10);
-
-context.closePath();
-context.lineWidth = 1.2;
-context.strokeStyle = "green";
-context.stroke();
-
-
-context.font = "45px 新宋体";// 设置字体
-context.fillStyle = "blue";
-context.fillText(gNianZhu[0],gLineLength/4*3-60,gLineLength/4+50);
-context.fillStyle = "grey";
-context.fillText(gNianZhu[1],gLineLength/4*3-60,gLineLength/4+50+55);
-context.restore();
 
 return ysihua+"<BR>"+msihua+"<BR>";
 }
@@ -2013,23 +2059,17 @@ fnDrawGongPos(context,gDayMingIndex);//标出当日命宫
         <!--这可以写字-->
 		</TBODY></TABLE>
 		<!--这可以写字<BR>-->
-
 <FONT color=grey>
-十二地支交接: 数字为空 前●上年混合,后●下年混合,▄纯年<BR>
-&nbsp&nbsp 寅 卯 辰 巳 午 未 申 酉 戌 亥 子 丑<BR>
-子年 ● ● ● ● ● ● ⑦ ⑧ ⑨ ⑩ ▄ ●<BR>
-丑年 ● ● ● ● ● ● ⑦ ⑧ ⑨ ⑩ ⊙ ▄<BR>
-寅年 ● ● ● ● ● ● ▄ ⑧ ⑨ ⑩ ⊙ ⊙<BR>
-卯年 ① ▄ ▄ ▄ ▄ ▄ ▄ ▄ ⑨ ⑩ ⊙ ⊙<BR>
-辰年 ① ② ▄ ▄ ▄ ▄ ▄ ▄ ▄ ⑩ ⊙ ⊙<BR>
-巳年 ① ② ③ ▄ ▄ ▄ ▄ ▄ ▄ ▄ ⊙ ⊙<BR>
-午年 ① ② ③ ④ ▄ ▄ ▄ ▄ ▄ ▄ ▄ ⊙<BR>
-未年 ① ② ③ ④ ⑤ ▄ ● ● ● ● ● ●<BR>
-申年 ▄ ▄ ▄ ▄ ⑤ ⑥ ▄ ● ● ● ● ●<BR>
-酉年 ● ● ● ● ▄ ⑥ ⑦ ▄ ● ● ● ●<BR>
-戌年 ● ● ● ▲ ▲ ⑥ ⑦ ⑧ ▄ ● ● ●<BR>
-亥年 ● ● ● ▄ ▄ ▄ ⑦ ⑧ ⑨ ▄ ● ●<BR>
+气的交接: 数字为空 前●上年混合,后●下年混合,▄纯年<BR><BR>
 </FONT>
+
+<!--<SCRIPT language=JavaScript>
+document.write('<FONT color=grey>');
+document.write(gTodayGanQiText+'<BR>');
+document.write(gTodayZhiQiText+'<BR>');
+document.write('</FONT>');
+//</SCRIPT>-->
+
 
 
   </TD>
@@ -2037,7 +2077,7 @@ fnDrawGongPos(context,gDayMingIndex);//标出当日命宫
 
 <HR width="90%" color=#cccccc noShade SIZE=1>
 
-<FONT style="FONT-SIZE: 9pt" face=ARIAL size=2>
+<FONT style="FONT-SIZE: 9pt" face=新宋体 size=2>
 
 <FONT color=red>甲</FONT>-11到5,9到+3、<FONT color=red>乙</FONT>-10到4,8到+2、
 
@@ -2047,7 +2087,20 @@ fnDrawGongPos(context,gDayMingIndex);//标出当日命宫
 
 <FONT color=red>庚</FONT>3到9、<FONT color=red>辛</FONT>2到8,12到+6、
 
-<FONT color=red>壬</FONT>1到7,11到+5、<FONT color=red>癸</FONT>-12到6,10到+4<BR></CENTER>
+<FONT color=red>壬</FONT>1到7,11到+5、<FONT color=red>癸</FONT>-12到6,10到+4<BR>
 
-
+<FONT color=grey>
+&nbsp 寅 卯 辰 巳 午 未 申 酉 戌 亥 子 丑&nbsp&nbsp&nbsp寅 卯 辰 巳 午 未 申 酉 戌 亥 子 丑<BR>
+子 ● ● ● ● ● ● ⑦ ⑧ ⑨ ⑩ ▄ ●&nbsp   甲 ● ● ● ● ▄ ⑥ ⑦ ⑧ ▄ ● ● ●<BR>
+丑 ● ● ● ● ● ● ⑦ ⑧ ⑨ ⑩ ⊙ ▄&nbsp   乙 ● ● ● ▄ ⑤ ⑥ ⑦ ▄ ● ● ● ●<BR>
+寅 ● ● ● ● ● ● ▄ ⑧ ⑨ ⑩ ⊙ ⊙&nbsp   丙 ● ● ▄ ④ ⑤ ⑥ ▄ ▄ ▄ ▄ ▄ ▄<BR>
+卯 ① ▄ ▄ ▄ ▄ ▄ ▄ ▄ ⑨ ⑩ ⊙ ⊙&nbsp   丁 ▲ ② ③ ④ ⑤ ▄ ▄ ▄ ▄ ▄ ▄ ▄<BR>
+辰 ① ② ▄ ▄ ▄ ▄ ▄ ▄ ▄ ⑩ ⊙ ⊙&nbsp   戊 ① ② ③ ④ ▄ ▄ ▄ ▄ ▄ ▄ ▄ ⊙<BR>
+巳 ① ② ③ ▄ ▄ ▄ ▄ ▄ ▄ ▄ ⊙ ⊙&nbsp   己 ① ② ③ ▄ ▄ ▄ ▄ ▄ ▄ ▄ ⊙ ⊙<BR>
+午 ① ② ③ ④ ▄ ▄ ▄ ▄ ▄ ▄ ▄ ⊙&nbsp   庚 ① ② ▄ ▄ ▄ ▄ ▄ ▄ ▄ ⑩ ⊙ ⊙<BR>
+未 ① ② ③ ④ ⑤ ▄ ● ● ● ● ● ●&nbsp   辛 ① ▄ ▄ ▄ ▄ ▄ ▄ ▄ ⑨ ⑩ ⊙ ▄<BR>
+申 ▄ ▄ ▄ ▄ ⑤ ⑥ ▄ ● ● ● ● ●&nbsp   壬 ● ● ● ● ● ● ▄ ⑧ ⑨ ⑩ ▄ ●<BR>
+酉 ● ● ● ● ▄ ⑥ ⑦ ▄ ● ● ● ●&nbsp   葵 ● ● ● ● ● ▄ ⑦ ⑧ ⑨ ▄ ● ●<BR>
+戌 ● ● ● ▲ ▲ ⑥ ⑦ ⑧ ▄ ● ● ●&nbsp
+亥 ● ● ● ▄ ▄ ▄ ⑦ ⑧ ⑨ ▄ ● ●</FONT></CENTER>
 </BODY></HTML>
